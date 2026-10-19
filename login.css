@@ -1,3 +1,5 @@
+/* ===== ARGOS | TELA DE LOGIN ===== */
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +13,32 @@ body{
 }
 
 
+/* Botão Voltar  */
+.botao-voltar {
+    position: fixed;
+    margin-top: max(5vw, 190px);
+    left: max(5vw, 30px);
+    z-index: 99;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 20px;
+    background: rgba(244, 241, 235, 0.85); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(6, 65, 47, 0.2); 
+    border-radius: 36px;
+    color: var(--verde);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.botao-voltar:hover {
+    background: rgba(244, 241, 235, 0.95);
+    transform: translateY(-2px);
+    color: var(--verde);
+}
 
 .login{
     position: relative;
@@ -22,7 +50,7 @@ body{
     background: #f4f1eb;
 }
 
-.onda_verde_login{
+.onda-verde-login{
     position: absolute;
     top: 0;
     left: 0;
@@ -31,17 +59,17 @@ body{
     z-index: 0;
 }
 
-.onda_verde_login svg{
+.onda-verde-login svg{
     display: block;
     width: 100%;
     height: 100%;      
 }
 
-.onda_verde_login:empty{
+.onda-verde-login:empty{
     background: linear-gradient(90deg, #022c1e, #06412f);
 }
 
-.logo_login{
+.logo-login{
     position: absolute;
     top: 9%;
     left: 4.6%;
@@ -49,45 +77,35 @@ body{
     z-index: 2;
 }
 
-.logo_login img{
+.logo-login img{
     display: block;
     width: 100%;
     height: auto;
 }
 
-.personagem_login{
+
+.personagem-login{
     position: absolute;
     left: 1%;
     bottom: 0;
-    height: 62%;
+    height: 57%;
     right: 0px;
     max-width: 30%;
     z-index: 3;
     pointer-events: none;
 }
 
-.personagem_login svg,
-.personagem_login img{
+.personagem-login svg,
+.personagem-login img{
     display: block;
     height: 100%;
     width: auto;
     max-width: 100%;
 }
 
-.arvore_login{
-    position: absolute;
-    top: 0;
-    right: 0;                          
-    width: clamp(220px, 26vw, 520px);
-    aspect-ratio: 571.3 / 290;
-    z-index: 0;
-}
+/* ---------- Formulário ---------- */
 
-.arvore_login svg{ display: block; width: 100%; height: 100%; }
-
-/* ===== Formulário ===== */
-
-.area_form{
+.area-form{
     grid-column: 2;
     display: grid;
     place-items: center;
@@ -96,29 +114,30 @@ body{
     z-index: 2;
 }
 
-.form_login{
+.form-login{
     width: min(100%, 520px);
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.form_titulo{
+.form-titulo{
     font-size: clamp(1.05rem, 1.25vw, 1.3rem);
     font-weight: 700;
     letter-spacing: .01em;
 }
 
-.form_subtitulo{
+.form-subtitulo{
     font-size: clamp(.9rem, 1vw, 1rem);
     margin: 1rem 0 2.2rem;
 }
 
-/* ===== Campos ===== */
+
+/* ---------- Campos ---------- */
 
 .campo{
     text-align: left;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
 }
 
 .campo label{
@@ -128,7 +147,7 @@ body{
     margin: 0 0 .3rem .9rem;
 }
 
-.campo_caixa{
+.campo-caixa{
     display: flex;
     align-items: center;
     gap: .6rem;
@@ -141,19 +160,19 @@ body{
     transition: box-shadow .15s ease, border-color .15s ease;
 }
 
-.campo_caixa:focus-within{
+.campo-caixa:focus-within{
     border-color: #62bb4d;
     box-shadow: 0 0 0 3px rgba(98, 187, 77, .35);
 }
 
-.campo_caixa.erro{ 
+.campo-caixa.erro{ 
     border-color: #b3261e; 
     box-shadow: 0 0 0 3px rgba(179, 38, 30, .35);
 }
 
 .icone{ width: 18px; height: 18px; flex: none; }
 
-.campo_caixa input{
+.campo-caixa input{
     flex: 1;
     min-width: 0;
     border: 0;
@@ -164,9 +183,9 @@ body{
     color: #06412f;
 }
 
-.campo_caixa input::placeholder{ color: #4d7567; }
+.campo-caixa input::placeholder{ color: #4d7567; }
 
-.btn_olho{
+.botao-olho{
     flex: none;
     display: grid;
     place-items: center;
@@ -179,20 +198,30 @@ body{
     border-radius: 50%;
 }
 
-.btn_olho:focus-visible{ outline: 2px solid #62bb4d; }
-.btn_olho svg{ width: 18px; height: 18px; }
-.btn_olho svg[hidden]{ display: none; }   
+.botao-olho:focus-visible{ outline: 2px solid #62bb4d; }
+.botao-olho svg{ width: 18px; height: 18px; }
+.botao-olho svg[hidden]{ display: none; }   
 
-.msg_erro:empty{ display: none; }
+.msg-erro:empty{ display: none; }
 
-.msg_erro{
+.msg-erro{
     font-size: .85rem;
     color: #b3261e;
     text-align: left;
     margin: -.4rem 0 .4rem .9rem;
 }
 
-.btn_entrar{
+.link-esqueceu{
+    align-self: center;
+    font-size: .95rem;
+    color: #62bb4d;
+    text-decoration: none;
+    margin: .6rem 0 1.6rem;
+}
+
+.link-esqueceu:hover{ text-decoration: underline; }
+
+.botao-entrar{
     align-self: center;
     width: min(100%, 290px);
     height: 50px;
@@ -207,55 +236,105 @@ body{
     transition: background .15s ease, transform .1s ease;
 }
 
-.btn_entrar:hover{ background: #022c1e; }
-.btn_entrar:active{ transform: scale(.98); }
-.btn_entrar:focus-visible{ outline: 3px solid #62bb4d; outline-offset: 2px; }
-.btn_entrar:disabled{ opacity: .65; cursor: wait; }
+.botao-entrar:hover{ background: #022c1e; }
+.botao-entrar:active{ transform: scale(.98); }
+.botao-entrar:focus-visible{ outline: 3px solid #62bb4d; outline-offset: 2px; }
+.botao-entrar:disabled{ opacity: .65; cursor: wait; }
 
-.form_rodape{
+.form-rodape{
     margin-top: 1.4rem;
     font-size: .95rem;
     font-weight: 500;
 }
 
-.form_rodape a{
+.form-rodape a{
     margin-left: .35rem;
     color: #3a9ad9;
     text-decoration: none;
 }
 
-.form_rodape a:hover{ text-decoration: underline; }
+.form-rodape a:hover{ text-decoration: underline; }
 
-/* ---------- Responsivo (celular / tablet) ----------
-   A onda vira uma faixa verde no topo e o boi some. */
+/* ---------- Responsivo -------- */
 
 @media (max-width: 900px){
 
     .login{
         grid-template-columns: 1fr;
-        padding-top: 230px;
+        padding-top: 120px;
     }
 
-    .onda_verde_login{
-        width: 100%;
-        height: 230px;
+    .onda-verde-login{
+        width: 150%;
+        height: 115px;
     }
 
-    .logo_login{
+    .logo-login{
         top: 40px;
         left: 50%;
         transform: translateX(-50%);
         width: 180px;
     }
 
-    .personagem_login,
-    .arvore_login{ display: none; }
+    .personagem-login,
+    .arvore-login{ display: none; }
 
-    .area_form{
+    .area-form{
         grid-column: 1;
         padding: 2.2rem 1.4rem 3rem;
     }
+    .botao-voltar {
+        position: fixed;
+        margin-top: 20px;
+        left: max(4vw, 20px);
+        z-index: 99;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 20px;
+        background: rgba(244, 241, 235, 0.85); 
+        -webkit-backdrop-filter: blur(10px);
+        border: 2px solid rgba(6, 65, 47, 0.2); 
+        border-radius: 36px;
+        color: var(--verde);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+
+    .campo{
+        text-align: left;
+        margin-bottom: 1.5rem;
+    }
+
+    .campo label{
+        display: block;
+        font-size: .9rem;
+        color: #3a7a63;
+        margin: 0 0 .3rem .9rem;
+    }
+
+    .campo-caixa{
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        height: 48px;
+        padding: 0 1.1rem;
+        border: 1.5px solid #06412f;
+        border-radius: 999px;
+        background: transparent;
+        color: #4d7567;
+        transition: box-shadow .15s ease, border-color .15s ease;
+    }
 }
+
+.botao-voltar:hover {
+    background: rgba(244, 241, 235, 0.95);
+    transform: translateY(-2px);
+    color: var(--verde);
+}
+
 
 @media (prefers-reduced-motion: reduce){
     *{ transition: none !important; }
