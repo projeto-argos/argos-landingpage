@@ -1,0 +1,278 @@
+@import url('landingV2.css');
+
+.header {
+    z-index: 100;
+}
+
+.header nav a.link-ativo {
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 2px;
+}
+
+.banner-topo {
+    color: var(--cream);
+    position: relative;
+    padding: 70px max(4vw, 40px) 160px;
+    overflow: hidden;
+}
+
+.conteudo-topo {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-topo {
+    max-width: 520px;
+    margin-left: 0;
+    text-align: left;
+    position: relative;
+    z-index: 10;
+}
+
+.texto-topo h1 {
+    font-size: clamp(38px, 4.8vw, 66px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+}
+
+.texto-topo p {
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.45;
+    opacity: 0.9;
+}
+
+.mascote-topo {
+    position: absolute;
+    right: max(4vw, 40px);
+    bottom: 16.1%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.mascote-topo img {
+    height: clamp(120px, 15vw, 270px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.onda-topo {
+    position: absolute;
+    bottom: -27px;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.secao-formulario {
+    padding: 80px 24px 100px;
+    background: var(--cream);
+}
+
+.caixa-formulario {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.tag-contato {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.caixa-formulario h2 {
+    font-size: clamp(32px, 4vw, 54px);
+    color: var(--green);
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.texto-subtitulo {
+    font-size: 18.5px;
+    color: #4a685d;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.linha-dupla {
+    display: flex;
+    gap: 20px;
+}
+
+.linha-dupla .campo {
+    flex: 1;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--green);
+}
+
+.campo input,
+.campo textarea {
+    background: transparent;
+    border: 1.5px solid var(--green);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--green);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #8fa098;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--lime);
+    box-shadow: 0 0 0 3px rgba(98, 187, 77, 0.2);
+}
+
+.campo textarea {
+    resize: none;
+}
+
+.area-botao {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.botao-enviar {
+    background: var(--green);
+    color: var(--cream);
+    padding: 16px 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.15s ease, background-color 0.2s;
+}
+
+.botao-enviar:hover {
+    background: #08523c;
+}
+
+.botao-enviar:active {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(6, 65, 47, 0.3);
+}
+/* Notificação Toast (estilo do protótipo) */
+.notificacao {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: #d8f3ce; /* Verde bem claro igual da imagem */
+    border: 1.5px solid #62BB4D; /* Borda verde */
+    border-radius: 50px;
+    padding: 14px 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.notificacao.visivel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.notificacao-icone {
+    width: 32px;
+    height: 32px;
+    background-color: #62BB4D; /* Verde principal do ícone */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notificacao-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.notificacao-texto strong {
+    color: #06412f; /* Verde escuro */
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.notificacao-texto p {
+    color: #3b5c4f;
+    font-size: 13.5px;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .notificacao {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .banner-topo {
+        padding-bottom: 100px;
+    }
+
+    .conteudo-topo {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .mascote-topo {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 20px;
+    }
+
+    .mascote-topo img {
+        height: clamp(120px, 40vw, 220px);
+    }
+
+    .linha-dupla {
+        flex-direction: column;
+        gap: 24px;
+    }
+}

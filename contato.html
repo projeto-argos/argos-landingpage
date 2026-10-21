@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;900&family=Rubik:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="logos/LogoTipo.svg">
+    <link rel="stylesheet" href="contato.css">
+    <title>Argos | Fale conosco</title>
+</head>
+<body>
+
+    <header class="header">
+        <a class="brand" href="landingV2.html#inicio"><img src="logos/Logo Deitada verde.svg" alt="Argos"></a>
+            <nav id="menu">
+                <a href="landingV2.html#funcionalidades">Funcionalidades</a>
+                <a href="landingV2.html#planos">Planos</a>
+                <a href="landingV2.html#sobre">Argos</a>
+                <a href="contato.html" class="link-ativo">Contato</a>
+                <a class="login login-mobile" href="./login.html">Entrar</a>
+            </nav>
+        <a class="login login-desktop" href="./login.html">Entrar</a>
+        <input type="checkbox" id="menu-check" class="menu-check" aria-label="Abrir menu" aria-controls="menu">
+        <label for="menu-check" class="menu-toggle" aria-hidden="true"></label>
+    </header>
+
+    <main>
+        <section class="banner-topo">
+            <div class="conteudo-topo">
+                <div class="texto-topo">
+                    <h1>Fale conosco!</h1>
+                    <p>O Argos está sempre à disposição para garantir suporte, soluções ágeis e segurança em cada etapa.</p>
+                </div>
+                <div class="mascote-topo">
+                    <img src="imagens/mascote-contato.svg" alt="Mascote Argos">
+                </div>
+            </div>
+
+            
+            
+            <svg class="onda-topo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1441 313" fill="none">
+                <path d="M676 180H1460V267.478C1171.05 331.656 997.53 324.589 676 267.478V180Z" fill="#62BB4D"/>
+                <path d="M0 0H1441V256.969C999.532 211.476 358.768 373.457 0 256.969V0Z" fill="url(#paint0_linear_1361_21)"/>
+                <defs>
+                    <linearGradient id="paint0_linear_1361_21" x1="720.5" y1="300" x2="721.814" y2="0.00576275" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#06412F"/>
+                        <stop offset="1" stop-color="#022C1E"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </section>
+
+        <section class="secao-formulario">
+            <div class="caixa-formulario">
+                <span class="tag-contato">— CONTATO</span>
+                <br>
+                <h2>Estamos aqui<br>para ajudar!</h2>
+                <br>
+        
+                <p class="texto-subtitulo">Preencha o formulário abaixo e nossa equipe de suporte entrará em contato o mais breve possível!</p>
+                <br>
+                <form class="formulario" id="form-contato" action="#" method="POST">
+                    <div class="linha-dupla">
+                        <div class="campo">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="campo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+
+                    <div class="campo">
+                        <br>
+                        <label for="mensagem">Como podemos ajudar?</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva sua dúvida ou problema..." required></textarea>
+                    </div>
+
+                    <div class="area-botao">
+                        <button type="submit" class="button botao-enviar">Enviar solicitação &rarr;</button>
+                    </div>
+
+                
+                    <br>
+                    <br>
+                </form>
+                <div id="notificacao-sucesso" class="notificacao">
+                    <div class="notificacao-icone">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="notificacao-texto">
+                        <strong>Solicitação enviada com sucesso!</strong>
+                        <p>Sua mensagem foi entregue e nossa equipe entrará em contato em breve.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <div class="brand footer-logo">
+                    <img src="logos/Logo Deitada clara.svg" alt="Argos">
+                </div>
+                <p>mais controle no <span>campo</span>,<br>mais segurança à <span>mesa</span>.</p>
+            </div>
+            <div>
+                <h3>Links rápidos</h3>
+                <a href="landingV2.html#inicio">Início</a>
+                <a href="./equipe.html">Equipe</a>
+                <a href="landingV2.html#funcionalidades">Funcionalidades</a>
+            </div>
+            <div>
+                <h3>Fale conosco</h3>
+                <a href="mailto:argos.institutojef@gmail.com">argos.institutojef@gmail.com</a>
+                <a href="https://instagram.com/argos.agro" target="_blank" rel="noopener">◎ @argos.agro</a>
+            </div>
+        </div>
+    </footer>
+    <script src="contato.js"></script>
+</body>
+</html>
