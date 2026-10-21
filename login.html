@@ -3,27 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>tela de login</title>
+    <title>ARGOS | Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logos/LogoTipo.svg">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    
-    <div class="fundo_verde_login">
 
-        <div class="logo_login">
-            <img  src="logos/Logo Deitada clara.svg" alt="">
-        </div>
+<main class="login">
 
-        <div>
-           <svg xmlns="http://www.w3.org/2000/svg" width="713" height="447" viewBox="0 0 713 447" fill="none">
-                <path d="M409.594 297.859C263.459 82.3809 187.766 13.5476 0 0V446.707H648.711C577.933 421.378 471.653 376.498 409.594 297.859Z" fill="#62BB4D" fill-opacity="0.5"/>
-                <path d="M101.003 199.917C66.4778 196.797 32.4245 188.978 0 179.61V446.707H425.779C376.462 316.886 241.715 191.76 101.003 199.917Z" fill="#62BB4D" fill-opacity="0.5"/>
-                <path d="M0 250.485C76.4308 208.168 202.843 166.29 358.318 220.283C589.862 312.665 662.14 228.509 712.864 446.707H0V250.485Z" fill="#62BB4D" fill-opacity="0.5"/>
-            </svg>
-        </div>
-        
+    <div class="onda_verde_login">
+        <svg preserveAspectRatio="none" viewBox="0 0 632 884" fill="none">
+            <path d="M590.225 891H-0.00012207L-0.00012207 -46.9999C230.497 -46.9999 590.225 -46.9999 590.225 -46.9999C387.502 382 748.5 434 590.225 891Z" fill="url(#paint0_linear_3693_762)"/>
+            <defs>
+                <linearGradient id="paint0_linear_3693_762" x1="31.5087" y1="380.538" x2="657.748" y2="380.538" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#022C1E"/>
+                    <stop offset="1" stop-color="#06412F"/>
+                </linearGradient>
+            </defs>
+        </svg>
     </div>
 
+    <div class="logo_login">
+        <a class="brand" href="landingV2.html#inicio"><img src="logos/Logo Deitada clara.svg" alt="Argos"></a>
+    </div>
 
+    <!-- PERSONAGEM (boi) -->
+    <div class="personagem_login">
+        <img src="imagens/mascote-login.svg" alt="Mascote do ARGOS">
+    </div>
+
+    <div class="arvore_login">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571.3 290" preserveAspectRatio="xMaxYMin meet" aria-hidden="true">
+                <path d="M249.413 3.84845C370.462 182.338 443.178 260.207 571.296 289.382V0.00088501H246.32C247.362 1.27435 248.394 2.55685 249.413 3.84845Z" fill="#62BB4D" fill-opacity="0.2"/>
+                <path d="M550.07 104.79C557.168 105.432 564.247 106.272 571.296 107.283V0.000289917H317.146C380.518 65.0921 464.183 109.769 550.07 104.79Z" fill="#62BB4D" fill-opacity="0.2"/>
+                <path d="M571.296 97.015C497.867 120.879 402.595 130.54 292.841 92.4252C137.221 30.3356 53.5439 47.9906 0.000793457 0.000976562L571.296 0.000976562V97.015Z" fill="#62BB4D" fill-opacity="0.2"/>
+        </svg>
+    </div>
+
+    <!-- FORMULÁRIO (lado direito) -->
+    <section class="area_form">
+
+        <form class="form_login" id="formLogin" novalidate>
+
+            <h1 class="form_titulo">BEM-VINDO DE VOLTA!</h1>
+            <p class="form_subtitulo">Faça login para continuar</p>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                <div class="campo_caixa">
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.5 7v.1L12 12.4 19.5 7.1V7L12 12.2Z" fill="currentColor"/></svg>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <div class="campo_caixa">
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4V7Z" fill="currentColor"/></svg>
+                    <input type="password" id="senha" name="senha" placeholder="Sua senha" autocomplete="current-password" required>
+                    <button type="button" class="btn_olho" id="btnOlho" aria-label="Mostrar senha">
+                        <!-- olho aberto (aparece quando a senha está visível) -->
+                        <svg id="olhoAberto" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M12 5c5 0 9 4.5 10 7-1 2.5-5 7-10 7S3 14.5 2 12c1-2.5 5-7 10-7Zm0 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" fill="currentColor"/></svg>
+                        <!-- olho riscado (aparece quando a senha está escondida) -->
+                        <svg id="olhoFechado" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.3 4.7 4.7 3.3l16 16-1.4 1.4-3.1-3.1A10.5 10.5 0 0 1 12 19C7 19 3 14.5 2 12c.6-1.4 2-3.2 3.9-4.600L3.3 4.7ZM12 5c5 0 9 4.5 10 7-.4 1-1.2 2.2-2.400 3.3L16.700 12.400A4.800 4.800 0 0 0 12 7.2c-.4 0-.8.1-1.2.2L8.600 5.2C9.700 5 10.800 5 12 5Z" fill="currentColor"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mensagem de erro (preenchida pelo login.js) -->
+            <p class="msg_erro" id="msgErro" role="alert" aria-live="polite"></p>
+
+            <a href="esqueci-senha.html" class="link_esqueceu">Esqueceu sua senha?</a>
+
+            <button type="submit" class="btn_entrar" id="btnEntrar">Entrar</button>
+
+            <p class="form_rodape">Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se já</a></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<script src="login.js"></script>
 </body>
 </html>
