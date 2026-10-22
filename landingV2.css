@@ -732,11 +732,7 @@ footer{
 }
 
 
-/* ==========================================================================
-   PÁGINA DA EQUIPE (equipe.html)
-   Tudo abaixo é exclusivo da página da equipe. Usa as variáveis, o header,
-   o footer e os botões definidos acima.
-   ========================================================================== */
+/* PÁGINA DA EQUIPE (equipe.html) */
 
 :root{
     --teal-light:#6BADA8;
