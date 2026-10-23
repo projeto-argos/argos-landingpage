@@ -1,0 +1,286 @@
+/* ===== ARGOS | TELA DE LOGIN ===== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "DM Sans", Arial, Helvetica, sans-serif;
+    color: #06412f;
+    background: #f4f1eb;
+}
+
+
+
+.login{
+    position: relative;
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    background: #f4f1eb;
+}
+
+.onda_verde_login{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    z-index: 0;
+}
+
+.onda_verde_login svg{
+    display: block;
+    width: 100%;
+    height: 100%;      
+}
+
+.onda_verde_login:empty{
+    background: linear-gradient(90deg, #022c1e, #06412f);
+}
+
+.logo_login{
+    position: absolute;
+    top: 9%;
+    left: 4.6%;
+    width: clamp(150px, 23vw, 380px);
+    z-index: 2;
+}
+
+.logo_login img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ---------- PERSONAGEM (SVG) ----------
+   >>> Cole o SVG dentro da <div class="personagem_login"> no login.html <<<
+   COMO MUDAR:
+   - height : tamanho do boi (hoje 62% da altura da tela)
+   - left   : distância da lateral esquerda
+   - bottom : distância do chão (0 = colado embaixo) */
+.personagem_login{
+    position: absolute;
+    left: 1%;
+    bottom: 0;
+    height: 62%;
+    right: 0px;
+    max-width: 30%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.personagem_login svg,
+.personagem_login img{
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+
+/* ---------- COPA DA ÁRVORE (SVG, canto superior direito) ----------
+   COMO MUDAR:
+   - width : tamanho da copa (hoje entre 220px e 520px, 26% da tela)
+   - Para a árvore INTEIRA com tronco: no SVG use viewBox="0 0 571.3 1030.6" e aqui troque por
+       height: 100%;  width: auto;  aspect-ratio: 571.3 / 1030.6;
+   - aspect-ratio abaixo = largura / altura do viewBox do SVG (571.3 / 290) */
+.arvore_login{
+    position: absolute;
+    top: 0;
+    right: 0;                          /* encostada na lateral direita */
+    width: clamp(220px, 26vw, 520px);
+    aspect-ratio: 571.3 / 290;
+    z-index: 0;
+}
+
+.arvore_login svg{ display: block; width: 100%; height: 100%; }
+
+/* ---------- Formulário ---------- */
+
+.area_form{
+    grid-column: 2;
+    display: grid;
+    place-items: center;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.form_login{
+    width: min(100%, 520px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form_titulo{
+    font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+    font-weight: 700;
+    letter-spacing: .01em;
+}
+
+.form_subtitulo{
+    font-size: clamp(.9rem, 1vw, 1rem);
+    margin: 1rem 0 2.2rem;
+}
+
+/* ---------- Campos ---------- */
+
+.campo{
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.campo label{
+    display: block;
+    font-size: .9rem;
+    color: #3a7a63;
+    margin: 0 0 .3rem .9rem;
+}
+
+.campo_caixa{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    height: 48px;
+    padding: 0 1.1rem;
+    border: 1.5px solid #06412f;
+    border-radius: 999px;
+    background: transparent;
+    color: #4d7567;
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.campo_caixa:focus-within{
+    border-color: #62bb4d;
+    box-shadow: 0 0 0 3px rgba(98, 187, 77, .35);
+}
+
+.campo_caixa.erro{ 
+    border-color: #b3261e; 
+    box-shadow: 0 0 0 3px rgba(179, 38, 30, .35);
+}
+
+.icone{ width: 18px; height: 18px; flex: none; }
+
+.campo_caixa input{
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-size: .95rem;
+    color: #06412f;
+}
+
+.campo_caixa input::placeholder{ color: #4d7567; }
+
+.btn_olho{
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    color: #4d7567;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.btn_olho:focus-visible{ outline: 2px solid #62bb4d; }
+.btn_olho svg{ width: 18px; height: 18px; }
+.btn_olho svg[hidden]{ display: none; }   
+
+.msg_erro:empty{ display: none; }
+
+.msg_erro{
+    font-size: .85rem;
+    color: #b3261e;
+    text-align: left;
+    margin: -.4rem 0 .4rem .9rem;
+}
+
+.link_esqueceu{
+    align-self: center;
+    font-size: .95rem;
+    color: #62bb4d;
+    text-decoration: none;
+    margin: .6rem 0 1.6rem;
+}
+
+.link_esqueceu:hover{ text-decoration: underline; }
+
+.btn_entrar{
+    align-self: center;
+    width: min(100%, 290px);
+    height: 50px;
+    border: 0;
+    border-radius: 999px;
+    background: #06412f;
+    color: #f4f1eb;
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+}
+
+.btn_entrar:hover{ background: #022c1e; }
+.btn_entrar:active{ transform: scale(.98); }
+.btn_entrar:focus-visible{ outline: 3px solid #62bb4d; outline-offset: 2px; }
+.btn_entrar:disabled{ opacity: .65; cursor: wait; }
+
+.form_rodape{
+    margin-top: 1.4rem;
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.form_rodape a{
+    margin-left: .35rem;
+    color: #3a9ad9;
+    text-decoration: none;
+}
+
+.form_rodape a:hover{ text-decoration: underline; }
+
+/* ---------- Responsivo (celular / tablet) ----------
+   A onda vira uma faixa verde no topo e o boi some. */
+
+@media (max-width: 900px){
+
+    .login{
+        grid-template-columns: 1fr;
+        padding-top: 230px;
+    }
+
+    .onda_verde_login{
+        width: 100%;
+        height: 230px;
+    }
+
+    .logo_login{
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+    }
+
+    .personagem_login,
+    .arvore_login{ display: none; }
+
+    .area_form{
+        grid-column: 1;
+        padding: 2.2rem 1.4rem 3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+}
