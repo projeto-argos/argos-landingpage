@@ -1040,16 +1040,17 @@ html{
     margin-bottom:10px
 }
 
-.member-area,
-.member-note{
+.member-area{
     font-size:14px;
-    font-weight:700;
-    line-height:1.4
+    font-weight:500;
+    line-height:1.4;
 }
 
 .member-note{
     margin-top:auto;
-    padding-top:16px
+    padding-top:16px;
+    font-size:14px;
+    line-height:1.4;
 }
 
 /*  Por que criamos */
