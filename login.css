@@ -1,5 +1,3 @@
-/* ===== ARGOS | TELA DE LOGIN ===== */
-
 *{
     margin: 0;
     padding: 0;
@@ -57,12 +55,6 @@ body{
     height: auto;
 }
 
-/* ---------- PERSONAGEM (SVG) ----------
-   >>> Cole o SVG dentro da <div class="personagem_login"> no login.html <<<
-   COMO MUDAR:
-   - height : tamanho do boi (hoje 62% da altura da tela)
-   - left   : distância da lateral esquerda
-   - bottom : distância do chão (0 = colado embaixo) */
 .personagem_login{
     position: absolute;
     left: 1%;
@@ -82,16 +74,10 @@ body{
     max-width: 100%;
 }
 
-/* ---------- COPA DA ÁRVORE (SVG, canto superior direito) ----------
-   COMO MUDAR:
-   - width : tamanho da copa (hoje entre 220px e 520px, 26% da tela)
-   - Para a árvore INTEIRA com tronco: no SVG use viewBox="0 0 571.3 1030.6" e aqui troque por
-       height: 100%;  width: auto;  aspect-ratio: 571.3 / 1030.6;
-   - aspect-ratio abaixo = largura / altura do viewBox do SVG (571.3 / 290) */
 .arvore_login{
     position: absolute;
     top: 0;
-    right: 0;                          /* encostada na lateral direita */
+    right: 0;                          
     width: clamp(220px, 26vw, 520px);
     aspect-ratio: 571.3 / 290;
     z-index: 0;
@@ -99,7 +85,7 @@ body{
 
 .arvore_login svg{ display: block; width: 100%; height: 100%; }
 
-/* ---------- Formulário ---------- */
+/* ===== Formulário ===== */
 
 .area_form{
     grid-column: 2;
@@ -128,7 +114,7 @@ body{
     margin: 1rem 0 2.2rem;
 }
 
-/* ---------- Campos ---------- */
+/* ===== Campos ===== */
 
 .campo{
     text-align: left;
@@ -205,16 +191,6 @@ body{
     text-align: left;
     margin: -.4rem 0 .4rem .9rem;
 }
-
-.link_esqueceu{
-    align-self: center;
-    font-size: .95rem;
-    color: #62bb4d;
-    text-decoration: none;
-    margin: .6rem 0 1.6rem;
-}
-
-.link_esqueceu:hover{ text-decoration: underline; }
 
 .btn_entrar{
     align-self: center;

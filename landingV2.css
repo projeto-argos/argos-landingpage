@@ -27,19 +27,20 @@ img,video,svg{
 
 /*  Header  */
 .header{
-    height:92px;
-    padding:0 max(6vw,32px);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+    height: 92px;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha tudo à esquerda */
+    gap: 170px; /* Define um espaço fixo entre a logo e o menu */
     background: rgba(244, 241, 235, 0.8); 
     backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: bl ur(10px); 
-    position:sticky;
-    top:0;
-    z-index:10
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
+
+
 
 .header a{
     text-decoration:none;
@@ -683,7 +684,9 @@ footer{
 @media(max-width:900px){
     .header{
         height:75px;
-        padding:0 24px
+        padding:0 24px;
+        justify-content:space-between;
+        gap:0
     }
     .brand img{
         height:36px
@@ -704,7 +707,8 @@ footer{
         border-radius:8px
     }
     .menu-toggle{
-        display:block
+        display:block;
+        margin-left:auto
     }
     .header nav{
         display:none;
