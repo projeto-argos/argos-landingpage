@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="argos-landingpage">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/argos-landingpage.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -12,22 +12,24 @@
 </head>
 <body>
 
-    <header class="header">
-        <a class="brand" href="landingV2.html#inicio"><img src="logos/Logo Deitada verde.svg" alt="Argos"></a>
-            <nav id="menu">
-                <a href="landingV2.html#funcionalidades">Funcionalidades</a>
-                <a href="landingV2.html#planos">Planos</a>
-                <a href="landingV2.html#sobre">Argos</a>
-                <a href="contato.html" class="link-ativo">Contato</a>
-                <a class="login login-mobile" href="./login.html">Entrar</a>
-            </nav>
-        <a class="login login-desktop" href="./login.html">Entrar</a>
-        <input type="checkbox" id="menu-check" class="menu-check" aria-label="Abrir menu" aria-controls="menu">
-        <label for="menu-check" class="menu-toggle" aria-hidden="true"></label>
+    <header class="cabecalho">
+        <a class="marca" href="landingV2.html#inicio"><img src="logos/Logo Deitada verde.svg" alt="Argos"></a>
+        <nav id="menu">
+            <a href="landingV2.html#problema">Problema</a>
+            <a href="landingV2.html#funcionalidades">Funcionalidades</a>
+            <a href="landingV2.html#planos">Planos</a>
+            <a href="landingV2.html#sobre">Argos</a>
+            <a href="landingV2.html#faq">FAQ</a>
+        </nav>
+        <input type="checkbox" id="checar-menu" class="checar-menu" aria-label="Abrir menu" aria-controls="menu">
+        <label for="checar-menu" class="botao-menu" aria-hidden="true"></label>
     </header>
 
     <main>
         <section class="banner-topo">
+            <a href="landingV2.html" class="botao-voltar">
+                ← Voltar
+            </a>
             <div class="conteudo-topo">
                 <div class="texto-topo">
                     <h1>Fale conosco!</h1>
@@ -38,8 +40,6 @@
                 </div>
             </div>
 
-            
-            
             <svg class="onda-topo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1441 313" fill="none">
                 <path d="M676 180H1460V267.478C1171.05 331.656 997.53 324.589 676 267.478V180Z" fill="#62BB4D"/>
                 <path d="M0 0H1441V256.969C999.532 211.476 358.768 373.457 0 256.969V0Z" fill="url(#paint0_linear_1361_21)"/>
@@ -54,12 +54,12 @@
 
         <section class="secao-formulario">
             <div class="caixa-formulario">
-                <span class="tag-contato">— CONTATO</span>
+                <span class="tag-contato">— Comece agora!</span>
                 <br>
                 <h2>Estamos aqui<br>para ajudar!</h2>
                 <br>
         
-                <p class="texto-subtitulo">Preencha o formulário abaixo e nossa equipe de suporte entrará em contato o mais breve possível!</p>
+                <p class="texto-subtitulo">Preencha o formulário abaixo e nossa equipe de suporte entrará em contato o mais breve possível para esclarecer como começar nessa jornada!</p>
                 <br>
                 <form class="formulario" id="form-contato" action="#" method="POST">
                     <div class="linha-dupla">
@@ -81,13 +81,12 @@
                     <div class="campo">
                         <br>
                         <label for="mensagem">Como podemos ajudar?</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva sua dúvida ou problema..." required></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu desejo ou dúvida..." required></textarea>
                     </div>
 
                     <div class="area-botao">
-                        <button type="submit" class="button botao-enviar">Enviar solicitação &rarr;</button>
+                        <button type="submit" class="botao botao-enviar">Enviar solicitação &rarr;</button>
                     </div>
-
                 
                     <br>
                     <br>
@@ -107,24 +106,29 @@
         </section>
     </main>
 
-    <footer id="contato">
-        <div class="footer-main">
-            <div class="footer-brand">
-                <div class="brand footer-logo">
+     <footer id="contato">
+        <div class="rodape-principal">
+            <div class="marca-rodape">
+                <div class="marca logo-rodape">
                     <img src="logos/Logo Deitada clara.svg" alt="Argos">
                 </div>
                 <p>mais controle no <span>campo</span>,<br>mais segurança à <span>mesa</span>.</p>
             </div>
             <div>
                 <h3>Links rápidos</h3>
-                <a href="landingV2.html#inicio">Início</a>
-                <a href="./equipe.html">Equipe</a>
+                <a href="landingV2.html#problema">Problema</a>
                 <a href="landingV2.html#funcionalidades">Funcionalidades</a>
+                <a href="landingV2.html#planos">Planos</a>
+                <a href="landingV2.html#argos">Argos</a>
+                <a href="equipe.html">Equipe</a>
+                <a href="contato.html">Contato</a>
             </div>
             <div>
                 <h3>Fale conosco</h3>
                 <a href="mailto:argos.institutojef@gmail.com">argos.institutojef@gmail.com</a>
                 <a href="https://instagram.com/argos.agro" target="_blank" rel="noopener">◎ @argos.agro</a>
+
+                <a href="login.html" class="botao-restrito">Área restrita</a>
             </div>
         </div>
     </footer>
