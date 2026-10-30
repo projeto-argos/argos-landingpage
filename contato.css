@@ -75,7 +75,7 @@
 .mascote-topo {
     position: absolute;
     right: max(4vw, 40px);
-    bottom: 16.1%;
+    bottom: 17.3%;
     z-index: 5;
     pointer-events: none;
 }
@@ -211,6 +211,7 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(6, 65, 47, 0.3);
 }
+
 /* Notificação Toast (estilo do protótipo) */
 .notificacao {
     position: fixed;
@@ -301,5 +302,40 @@
     .linha-dupla {
         flex-direction: column;
         gap: 24px;
+    }
+}
+
+/* Correção do banner (só desktop) */
+@media (min-width: 901px) {
+    .banner-topo {
+        position: relative !important;
+        overflow: hidden !important;
+        display: block !important;
+    }
+
+    .banner-topo .conteudo-topo {
+        position: static !important;
+        width: 100% !important;
+        max-width: 1240px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    .banner-topo .texto-topo {
+        margin: 0 !important;
+        text-align: left !important;
+        top: 30px !important;
+    }
+
+    .banner-topo .mascote-topo {
+        position: absolute !important;
+        top: auto !important;
+        left: auto !important;
+        right: max(4vw, 40px) !important;
+        bottom: 63px !important;
+        margin: 0 !important;
+        z-index: 5 !important;
     }
 }
