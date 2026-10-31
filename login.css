@@ -24,7 +24,7 @@ body{
     justify-content: center;
     padding: 6px 20px;
     background: rgba(244, 241, 235, 0.85); 
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 2px solid rgba(6, 65, 47, 0.2); 
     border-radius: 36px;
     color: var(--verde);
@@ -293,7 +293,7 @@ body{
         justify-content: center;
         padding: 6px 20px;
         background: rgba(244, 241, 235, 0.85); 
-        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         border: 2px solid rgba(6, 65, 47, 0.2); 
         border-radius: 36px;
         color: var(--verde);

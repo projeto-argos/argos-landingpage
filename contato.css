@@ -289,14 +289,7 @@
     }
 
     .mascote-topo {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin-top: 20px;
-    }
-
-    .mascote-topo img {
-        height: clamp(120px, 40vw, 220px);
+        display: none;
     }
 
     .linha-dupla {
