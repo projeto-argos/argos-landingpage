@@ -881,10 +881,11 @@ footer{
     .mascote-rodape{
         display: none !important;
     }
-    .botao-restrito {
-        position: static;
-        align-self: flex-start;
-        margin-top: 10px;
+    .rodape-principal > .footer-botoes {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
     }
 }
 
