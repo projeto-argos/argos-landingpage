@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página -->
+    <title>Lotes - Argos</title>
+
+    <!-- Fontes importadas  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/tables.css">
+    <link rel="stylesheet" href="../assets/css/forms.css">
+    <link rel="stylesheet" href="../assets/css/filtro.css">
+    <link rel="stylesheet" href="../assets/css/feedbackMessages.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/popup.js" defer></script>
+    <script src="../assets/js/tabela.js" defer></script>
+    <script src="../assets/js/filtro.js" defer></script>
+</head>
+<body>
+
+    <!-- Menu para navegação das páginas -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="../assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="../assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <!-- Páginas -->
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="../home/home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="../users/users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="../properties/properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="../animals/animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="../lots/lots.html" class="active"><div class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></div><span class="text">Lote</span></a></li>
+            <li><a href="../herds/herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="../admins/admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+
+            <!-- Modo escuro e claro-->
+
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+
+            <!-- Sair -->
+
+            <li><a href="../auth/login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Tela principal -->
+
+<main class="conteudo">
+    
+    <section class="painel">
+
+        <div class="painel-topo">
+            <h1>Lotes cadastrados</h1>
+
+            <div class="painel-acoes">
+
+            <!-- Botão de filtrar e as opções de filtros -->
+
+            <details class="filtro ">
+                <summary>Filtrar</summary>
+                <form method="get" action="#" onsubmit="event.preventDefault()">
+                    <div class="campo"><label for="filtro-lotCode">Código lote</label><input type="text" id="filtro-lotCode" name="lotCode" value=""/></div>
+                    
+                        <div class="campo">
+                            <label for="filtro-herdId">Rebanho</label>
+                            <select id="filtro-herdId" name="herdId">
+                                <option value="">Todos</option>
+                                
+                                    <option value="" ></option>
+                                
+                            </select>
+                        </div>
+                    
+                    <div class="campo">
+                        <label for="filtro-category">Categoria</label>
+                        <select id="filtro-category" name="category">
+                            <option value="">Todas</option>
+                            <option value="BREEDING" >Cria</option>
+                            <option value="REARING" >Recria</option>
+                            <option value="FATTENING" >Engorda</option>
+                        </select>
+                    </div>
+                    <div class="campo"><label for="filtro-headCount">Quantidade de cabeças</label><input type="number" id="filtro-headCount" name="headCount" min="0" value=""/></div>
+                    <div class="campo"><label for="filtro-openDate">Data de abertura</label><input type="date" id="filtro-openDate" name="openDate" value=""/></div>
+                    <div class="filtro-acoes"><a href="../lots/lots.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                </form>
+            </details>
+
+            <!-- Botão de novo lote -->
+
+            <button type="button" class="btn btn-escuro"
+                    data-abrir="modalLote" data-acao="criar" data-action="#" onsubmit="event.preventDefault()"
+                    data-titulo="Cadastrar Lote" data-botao="Cadastrar">
+                <i class="fa-solid fa-plus"></i> Novo lote
+            </button>
+            </div>
+        </div>
+
+        <!-- Barra de busca -->
+
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="campoBusca" placeholder="Buscar lote ..." aria-label="Buscar lote" autocomplete="off">
+        </div>
+
+        <!-- Listagem dos lotes (Tabela)-->
+
+        <div class="tabela-scroll">
+            <table class="tabela" id="tabela">
+
+                <!-- Cabeçalho -->
+
+                <thead>
+                <tr>
+                    <th>Código lote</th>
+                    <th>Rebanho</th>
+                    <th>Categoria</th>
+                    <th>Quantidade de cabeças</th>
+                    <th>Data de abertura</th>
+                    <th>Última atualização</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- 1 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-016</td>
+                        <td>Caracu Elite</td>
+                        <td>RECRIA</td> 
+                        <td>7</td>
+                        <td>27/07/2026</td>
+                        <td class="col-data">31/10/2026</td>
+
+                        <!-- Excluir e editar -->
+
+                        <td class="col-acoes">
+
+                            <!-- Editar -->
+
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+
+                            <!-- Excluir -->
+
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 2 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-017</td>
+                        <td>Brangus Plus III</td>
+                        <td>ENGORDA</td> 
+                        <td>24</td>
+                        <td>27/04/2026</td>
+                        <td class="col-data">30/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 3 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-018</td>
+                        <td>Guzerá PO</td>
+                        <td>CRIA</td> 
+                        <td>15</td>
+                        <td>08/07/2026</td>
+                        <td class="col-data">22/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 4 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-019
+                        </td>
+                        <td>Senepol Precoce</td>
+                        <td>RECRIA</td> 
+                        <td>6</td>
+                        <td>29/08/2026</td>
+                        <td class="col-data">29/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 5 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-020</td>
+                        <td>Indubrasil Confinamento Norte</td>
+                        <td>ENGORDA</td> 
+                        <td>9</td>
+                        <td>18/09/2026</td>
+                        <td class="col-data">31/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 6 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-021</td>
+                        <td>Tabapuã Seleção</td>
+                        <td>CRIA</td> 
+                        <td>13</td>
+                        <td>16/07/2026</td>
+                        <td class="col-data">28/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 7 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-022</td>
+                        <td>Angus Comercial III</td>
+                        <td>ENGORDA</td> 
+                        <td>14</td>
+                        <td>20/09/2026</td>
+                        <td class="col-data">30/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 8 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-023</td>
+                        <td>Santa Gertrudis Confinamento</td>
+                        <td>RECRIA</td> 
+                        <td>5</td>
+                        <td>21/08/2026</td>
+                        <td class="col-data">24/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 9 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-024</td>
+                        <td>Limousin Elite</td>
+                        <td>CRIA</td> 
+                        <td>10</td>
+                        <td>23/07/2026</td>
+                        <td class="col-data">31/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 10 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-025</td>
+                        <td>Wagyu Recria</td>
+                        <td>RECRIA</td> 
+                        <td>11</td>
+                        <td>13/09/2026</td>
+                        <td class="col-data">21/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 11 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-026</td>
+                        <td>Canchim Engorda</td>
+                        <td>ENGORDA</td> 
+                        <td>17</td>
+                        <td>22/09/2026</td>
+                        <td class="col-data">30/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 12 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-027</td>
+                        <td>Brangus Confinamento</td>
+                        <td>RECRIA</td> 
+                        <td>10</td>
+                        <td>19/07/2026</td>
+                        <td class="col-data">29/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- 13 REGISTRO -->
+
+                    <tr class="linha">
+                        <td>LOTE-028</td>
+                        <td>Brangus Plus III</td>
+                        <td>CRIA</td> 
+                        <td>17</td>
+                        <td>20/08/2026</td>
+                        <td class="col-data">31/10/2026</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#" onsubmit="event.preventDefault()"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot=""
+                                    data-herd-id=""
+                                    data-lot-code=""
+                                    data-category=""
+                                    data-head-count=""
+                                    data-open-date="">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id=""
+                                    data-lot-code="">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+
+                <tr class="linha-vazia" id="linhaVazia" hidden>
+                    <td colspan="7">Nenhum resultado encontrado.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botões de próxima e anterior -->
+
+        <div class="painel-rodape">
+            <p id="infoPaginas" aria-live="polite"></p>
+            <div class="paginacao">
+                <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Cadastro de novo lote -->
+
+    <dialog class="modal" id="modalLote">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Cadastrar Lote</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="get" action="#" onsubmit="event.preventDefault()">
+                <input type="hidden" name="idLot" value="">
+
+                <div class="form-grade">
+                    <div class="campo">
+                        <label for="campoCodigo">Código do Lote</label>
+                        <input type="text" id="campoCodigo" name="lotCode" placeholder="ex: LOTE-001"
+                               required maxlength="20" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoCategoria">Categoria</label>
+                        <select id="campoCategoria" name="category" required>
+                            <option value="" disabled selected>Selecione a categoria</option>
+                            <option value="BREEDING">Cria</option>
+                            <option value="REARING">Recria</option>
+                            <option value="FATTENING">Engorda</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="campoQuantidade">Quantidade de Cabeças</label>
+                        <input type="number" id="campoQuantidade" name="headCount" placeholder="ex: 10"
+                               required min="0" step="1" inputmode="numeric" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoDataAbertura">Data de Abertura</label>
+                        <input type="date" id="campoDataAbertura" name="openDate" required>
+                    </div>
+                    <div class="campo largura-total">
+                        <label for="campoRebanho">Rebanho</label>
+                        <select id="campoRebanho" name="herdId" required>
+                            <option value="" disabled selected>Selecione o rebanho</option>
+                            
+                                <option value=""></option>
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-rodape">
+                    <button type="submit" class="btn-pilula">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Confirmação de exclusão -->
+
+    <dialog class="modal modal-pequeno" id="modalExcluir">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Excluir Lote</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="get" action="#" onsubmit="event.preventDefault()">
+                <input type="hidden" name="id" value="">
+
+                <p class="modal-texto">Tem certeza que deseja excluir o lote <strong data-mostrar="lotCode"></strong>?</p>
+
+                <div class="form-rodape">
+                    <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                    <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+</main>
+
+</body>
+</html>

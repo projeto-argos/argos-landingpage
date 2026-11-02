@@ -1,0 +1,166 @@
+.painel-acoes {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filtro {
+    color: var(--texto-pagina);
+}
+
+.filtro summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 38px;
+    padding: 0 16px;
+    border: 1px solid var(--verde-claro);
+    border-radius: 100px;
+    font-family: var(--fonte-titulo);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--texto-pagina);
+    cursor: pointer;
+    list-style: none;
+    transition: var(--tran-rapida);
+}
+
+.filtro summary::-webkit-details-marker {
+    display: none;
+}
+
+.filtro summary::before {
+    content: "\f0b0";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.filtro summary::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 9px;
+    transition: transform 0.2s;
+}
+
+.filtro[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.filtro summary:hover,
+.filtro-ativo summary {
+    background: var(--verde-claro);
+    border-color: var(--verde-claro);
+    color: var(--verde-escuro);
+}
+
+.filtro summary:focus-visible {
+    outline: 3px solid var(--verde-claro);
+    outline-offset: 2px;
+}
+
+.filtro form {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 30;
+    width: min(640px, calc(100vw - 48px));
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px 18px;
+    padding: 22px 24px;
+
+    border: 1px solid var(--linha);
+    border-radius: 18px;
+    background: var(--painel-fundo);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.filtro form::before {
+    content: "Filtrar por";
+    grid-column: 1 / -1;
+    font-family: var(--fonte-titulo);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texto-pagina);
+}
+
+.filtro .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filtro .campo label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.filtro .campo input,
+.filtro .campo select {
+    width: 100%;
+    height: 40px;
+    padding: 0 14px;
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+    background: var(--campo-fundo);
+    color: var(--texto-corpo);
+    font-family: var(--fonte-corpo);
+    font-size: 14px;
+}
+
+.filtro .campo input::placeholder {
+    color: var(--texto-suave);
+}
+
+.filtro .campo input:focus,
+.filtro .campo select:focus {
+    outline: none;
+    border-color: var(--verde-claro);
+    box-shadow: 0 0 0 3px rgba(98, 187, 77, 0.25);
+}
+
+.filtro .campo select {
+    appearance: none;
+    padding-right: 36px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236B756F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.filtro-acoes {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--linha);
+}
+
+.filtro-acoes a.btn-pilula {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .filtro form {
+        position: fixed;
+        top: auto;
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        width: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
