@@ -121,7 +121,7 @@ img,video,svg{
     align-items: center;
     justify-content: center;
     padding: 6px 20px;
-    background: rgba(244, 241, 235, 0.85); 
+    background: rgba(244, 241, 235, 0.75); 
     backdrop-filter: blur(10px);
     border: 2px solid rgba(6, 65, 47, 0.2); 
     border-radius: 36px;
@@ -175,7 +175,6 @@ img,video,svg{
 }
 
 .subtitulo-topo{
-    font-family:Rubik,sans-serif;
     font-size:clamp(18px,1.6vw,22px);
     line-height:1.35;
     max-width:440px;
@@ -611,8 +610,6 @@ footer{
     margin-left: 40px; 
 }
 
-
-
 .chamada-rodape h2{
     font-size:40px;
     line-height:1.15;
@@ -686,36 +683,50 @@ footer{
     margin-bottom:7px
 }
 
-.rodape-principal a{
+.rodape-principal a .botao-restrito{
     color:var(--creme);
     font-size:14px
+}
+
+.rodape-principal a:not(.botao-restrito),
+.rodape-principal a:not(.botao-restrito):visited {
+    color: var(--creme);
+    font-size: 14px;
+    text-decoration: underline;
 }
 
 .mascote-rodape{
     position:absolute;
     right:4%;
-    top:-298px;
+    top:-283px;
     width:260px;
     z-index:11;
     pointer-events:none
 }
 
 /* Botão Área Restrita no Footer */
-.botao-restrito {
-    text-decoration: none;
+.rodape-principal > .footer-botoes {
     position: absolute;
     right: max(8.35vw, 32px);
     bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.botao-restrito {
+    text-decoration: none;
     border: 2px solid #F4F1EB;
     color: #F4F1EB;
     padding: 10px 22px;
     border-radius: 36px;
     font-weight: 700;
     font-size: 15px;
+    white-space: nowrap;
     transition: all 0.2s ease;
 }
-
-
 
 .botao-restrito:hover,
 .botao-restrito:focus {
@@ -853,9 +864,9 @@ footer{
         text-align:center
     }
     .chamada-rodape{
-    flex-direction:column;
-    text-align:center;
-    margin-left:0
+        flex-direction:column;
+        text-align:center;
+        margin-left:0
     }
     .chamada-rodape > div:first-child{
         margin-left:0
