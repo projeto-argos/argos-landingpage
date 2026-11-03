@@ -1,3 +1,4 @@
+/* ARGOS | TELA DE CARREGAMENTO  */
 .carregamento {
     position: fixed;
     inset: 0;
@@ -31,18 +32,17 @@
 .carregamento-mascote {
     position: absolute;
     left: 50%;
-    bottom: 16px;
+    bottom: 12px;
+    width: 146px;
     height: 190px;
-    width: auto;
-    margin-left: -77px;
-    transform-origin: 50% 100%;
-    animation: mascote-pula .44s ease-in-out infinite;
+    margin-left: -73px;
+    background: url("../img/mascote-corrida.webp") 0 0 / 1168px 190px no-repeat;
+    animation: mascote-corre .64s steps(8) infinite;
     z-index: 2;
 }
 
-@keyframes mascote-pula {
-    0%, 100% { transform: translateY(0) rotate(-3deg) scale(1.03, .97); }
-    50%      { transform: translateY(-16px) rotate(3deg) scale(.98, 1.02); }
+@keyframes mascote-corre {
+    to { background-position: -1168px 0; }
 }
 
 .carregamento-chao {
@@ -70,14 +70,8 @@
     margin-left: -60px;
     border-radius: 50%;
     background: currentColor;
-    opacity: .18;
-    animation: sombra-pula .44s ease-in-out infinite;
+    opacity: .16;
     z-index: 1;
-}
-
-@keyframes sombra-pula {
-    0%, 100% { transform: scaleX(1);   opacity: .22; }
-    50%      { transform: scaleX(.7);  opacity: .1; }
 }
 
 .carregamento-poeira {
@@ -101,6 +95,7 @@
     100% { transform: translate(-60px, -10px) scale(1.6); opacity: 0; }
 }
 
+/* Texto e pontinhos */
 .carregamento-texto {
     display: flex;
     align-items: center;
@@ -132,8 +127,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .carregamento *,
-    .carregamento-mascote {
+    .carregamento * {
         animation: none !important;
     }
 }

@@ -155,10 +155,6 @@ html.sb-fechada .sidebar .toggle i { transform: rotate(0deg); }
     font-size: 18px;
 }
 
-.sidebar li a.active .icone-lote .fa-cow,
-.sidebar li a.active .icone-lote .fa-plus {
-    color: #06412F;
-}
 
 .icone-lote {
     position: relative;
@@ -166,25 +162,23 @@ html.sb-fechada .sidebar .toggle i { transform: rotate(0deg); }
     width: 25px;
     height: 20px;
     flex-shrink: 0;
-    color: white;
     margin-left: 17px;
     margin-right: 10px;
+    color: currentColor;
 }
 
 .icone-lote .fa-cow {
     position: absolute;
-    font-size: 17px;
     bottom: 0;
     left: -5px;
-    color: white;
+    font-size: 17px;
 }
 
 .icone-lote .fa-plus {
     position: absolute;
-    font-size: 12px;
     top: -5px;
     right: -1px;
-    color: white;
+    font-size: 12px;
 }
 
 .sidebar li .text {
@@ -263,6 +257,7 @@ html.sb-fechada .conteudo {
     margin-left: var(--sidebar-fechada);
 }
 
+/*RESPONSIVO */
 .menu-mobile,
 .sidebar .menu-fechar,
 .sidebar-fundo {

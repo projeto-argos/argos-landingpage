@@ -1,3 +1,4 @@
+/*  ARGOS | TELA DE LOGIN */
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +10,8 @@ body{
     color: #06412f;
     background: #f4f1eb;
 }
+
+
 
 .login{
     position: relative;
@@ -83,6 +86,7 @@ body{
 
 .arvore_login svg{ display: block; width: 100%; height: 100%; }
 
+/*  Formulário  */
 .area_form{
     grid-column: 2;
     display: grid;
@@ -109,6 +113,8 @@ body{
     font-size: clamp(.9rem, 1vw, 1rem);
     margin: 1rem 0 2.2rem;
 }
+
+/*  Campos  */
 
 .campo{
     text-align: left;
@@ -232,6 +238,34 @@ body{
 
 .slogan_login{ display: none; }
 
+/*  Botão Voltar (para a landing page)  */
+
+.btn_voltar{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: 6px 18px;
+    background: rgba(244, 241, 235, 0.9);
+    border: 2px solid rgba(6, 65, 47, 0.2);
+    border-radius: 36px;
+    color: #06412f;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.btn_voltar:hover{
+    background: #f4f1eb;
+    transform: translateY(-2px);
+}
+
+.btn_voltar:focus-visible{ outline: 3px solid #62bb4d; outline-offset: 2px; }
+
 @media (max-width: 900px){
 
     .login{ grid-template-columns: 40% 1fr; }
@@ -267,6 +301,11 @@ body{
 }
 
 @media (max-width: 640px){
+
+    .btn_voltar{
+        top: 16px;
+        left: 16px;
+    }
 
     .login{
         --topo: 300px;

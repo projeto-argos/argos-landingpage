@@ -1,49 +1,33 @@
 # ARGOS — Landing Page
 
-Landing page pública do projeto interdisciplinar ARGOS, desenvolvida com HTML, CSS e JavaScript.
+Landing page do ARGOS, sistema web de gestão de pecuária e de medicamentos aplicados em bovinos. Apresenta o problema, a solução, os planos e a equipe, e leva à área restrita do sistema.
 
-## Objetivo
-
-Apresentar o problema estudado, a proposta do ARGOS, suas principais funcionalidades e as informações necessárias para conhecer o projeto.
+**Site publicado:** [argos-landingpage.vercel.app](https://argos-landingpage.vercel.app/)
 
 ## Tecnologias
 
-- HTML5
-- CSS3
-- JavaScript
-- GitHub Pages
+- HTML, CSS e JavaScript
+- Publicação na Vercel
 
-## Estrutura planejada
+## Estrutura
 
 ```text
 argos-landingpage/
-├── index.html
-├── pages/
-├── assets/
-│   ├── css/
-│   ├── js/
-│   └── img/
-└── README.md
+├── index.html        página principal
+├── equipe.html       criadores do projeto
+├── contato.html      formulário de contato
+├── login.html        entrada para a área restrita
+├── *.css / *.js      estilo e comportamento de cada página
+├── imagens/          mascotes, ilustrações e vídeo de apresentação
+├── logos/            versões do logotipo
+├── figma/            imagens exportadas do Figma (fotos da equipe e benchmark)
+└── telas/            telas estáticas do sistema (CRUD) em HTML, CSS e JS
 ```
 
-## Requisitos de qualidade
+## Telas do sistema
 
-- Layout responsivo
-- HTML semântico
-- Navegação clara
-- Compatibilidade com diferentes tamanhos de tela
-- Contraste adequado
-- Textos alternativos em imagens relevantes
-- Navegação básica por teclado
+A pasta [`telas/`](./telas/) tem a versão estática de todas as telas do sistema, com dados de exemplo, para visualizar o design sem precisar do back-end. Abra o `telas/index.html` para ver a lista. O sistema em funcionamento está em [argos-web-crud.onrender.com](https://argos-web-crud.onrender.com).
 
-## UX/UI
+## Design
 
-As pesquisas, fluxos, protótipos e testes de usabilidade estão documentados no repositório [argos-docs](https://github.com/projeto-argos/argos-docs).
-
-## Publicação
-
-O endereço público da landing page será adicionado aqui após a configuração do GitHub Pages.
-
-## Status
-
-Em desenvolvimento.
+A landing page e as telas seguem o protótipo do Figma. Os artefatos de UX estão no [argos-docs](https://github.com/projeto-argos/argos-docs).

@@ -1,0 +1,92 @@
+/* ARGOS | CAMPO "PESQUISAR E SELECIONAR" */
+.pesquisa {
+    position: relative;
+}
+
+.pesquisa-lista {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 30;
+    max-height: 220px;
+    margin: 0;
+    padding: 6px;
+    overflow-y: auto;
+    list-style: none;
+    border: 2px solid var(--verde-claro);
+    border-radius: 18px;
+    background: var(--input-fundo, #F4F1EB);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.pesquisa-lista[hidden] {
+    display: none;
+}
+
+.pesquisa-lista li {
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--texto-corpo);
+    cursor: pointer;
+}
+
+.pesquisa-lista li[hidden] {
+    display: none;
+}
+
+.pesquisa-lista li:hover,
+.pesquisa-lista li.ativo {
+    background: var(--editar-fundo, #E6F0E3);
+    color: var(--texto-pagina);
+}
+
+.pesquisa-lista li.pesquisa-vazio {
+    color: var(--texto-suave);
+    cursor: default;
+    background: none;
+}
+
+/* Itens escolhidos  */
+.pesquisa-escolhidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.pesquisa-escolhidos:empty {
+    display: none;
+}
+
+.pesquisa-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px 6px 14px;
+    border: 1px solid var(--editar-borda, rgba(6, 65, 47, 0.35));
+    border-radius: 999px;
+    background: var(--editar-fundo, #E6F0E3);
+    color: var(--texto-pagina);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pesquisa-remover {
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(127, 140, 133, 0.35);
+    color: var(--texto-pagina);
+    font-size: 11px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pesquisa-remover:hover {
+    background: rgba(127, 140, 133, 0.6);
+}

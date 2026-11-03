@@ -11,6 +11,7 @@ html.dark {
     --card-sombra: 0 6px 14px rgba(0, 0, 0, 0.45);
 }
 
+/*  Página inicial  */
 .home-titulo {
     margin: 8px 0 28px;
     font-family: var(--fonte-titulo);
@@ -91,33 +92,6 @@ html.dark .card-total-icone {
     color: var(--texto-pagina);
 }
 
-.card-total-icone .icone-lote {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    left: -13px
-}
-
-.card-total-icone .icone-lote .fa-cow {
-    position: absolute;
-    font-size: 13px;
-    color: #06412F;
-    top: 7px;
-    left: 2px;
-}
-
-.card-total-icone .icone-lote .fa-plus {
-    position: absolute;
-    font-size: 8px;
-    color: #06412F;
-    top: 2px;
-    right: 0;
-}
-
 .home-tabela {
     max-width: 960px;
     margin: 0 auto;
@@ -135,6 +109,7 @@ html.dark .home-tabela .tabela thead th {
     background-color: var(--campo-fundo);
 }
 
+/*  Boas-vindas  */
 .conteudo.conteudo-cheio {
     padding: 0;
 }
@@ -219,6 +194,7 @@ html.dark .home-tabela .tabela thead th {
     width: auto;
 }
 
+/*  Telas menores  */
 @media (max-width: 1000px) {
     .cards-grade {
         grid-template-columns: repeat(2, 1fr);
@@ -228,6 +204,18 @@ html.dark .home-tabela .tabela thead th {
 @media (max-width: 640px) {
     .cards-grade {
         grid-template-columns: 1fr;
+    }
+
+    /* Tabela da página inicial cabe na tela do celular, sem rolagem lateral */
+    .home-tabela .tabela {
+        min-width: 0;
+    }
+
+    .home-tabela .tabela thead th,
+    .home-tabela .tabela tbody td {
+        padding-left: 10px;
+        padding-right: 10px;
+        white-space: normal;
     }
 
     .home-titulo {

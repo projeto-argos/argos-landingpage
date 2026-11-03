@@ -1,42 +1,42 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Título da página -->
     <title>Boas-vindas - Argos</title>
 
-    <!-- Fontes importadas  -->
+    <!-- Fontes do Figma  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/tables.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 
     <!-- JAVASCRIPT -->
-    <script src="../assets/js/sidebar.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 </head>
 <body>
 
-    <!-- Menu para navegação das páginas -->
+<!-- Botão do menu no celular -->
 <button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
     <i class="fa-solid fa-bars"></i>
 </button>
-
 <div class="sidebar-fundo"></div>
 
 <nav class="sidebar">
     <header>
         <img class="logo-completo"
-             src="../assets/img/logo-argos.png"
+             src="assets/img/logo-argos.png"
              alt="Argos">
 
         <img class="logo-icone"
-             src="../assets/img/logo-argos-icone.png"
+             src="assets/img/logo-argos-icone.png"
              alt="Argos">
 
         <button type="button" class="toggle"
@@ -49,23 +49,18 @@
         </button>
     </header>
 
-    <!-- Páginas -->
-
     <div class="menu-bar">
         <ul class="menu-links">
-            <li><a href="../home/home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
-            <li><a href="../users/users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
-            <li><a href="../properties/properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
-            <li><a href="../animals/animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
-            <li><a href="../lots/lots.html" class=""><div class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></div><span class="text">Lote</span></a></li>
-            <li><a href="../herds/herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
-            <li><a href="../admins/admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
         </ul>
 
         <ul class="bottom-content">
-
-            <!-- Modo escuro e claro-->
-
             <li>
                 <button type="button" class="mode-btn">
                     <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
@@ -74,21 +69,13 @@
                     <span class="switch"></span>
                 </button>
             </li>
-
-            <!-- Sair -->
-
-            <li><a href="../auth/login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
         </ul>
     </div>
 </nav>
 
-    <!-- Tela principal -->
-
 <main class="conteudo conteudo-cheio">
-
     <section class="boas-vindas">
-
-        <!-- Ondas do topo e de baixo -->
 
         <svg class="onda onda-topo" viewBox="0 0 420 240" aria-hidden="true">
             <path style="fill:var(--onda-1)" d="M0 0H420V200C340 215 270 170 215 115C170 70 90 30 0 0Z"/>
@@ -104,15 +91,11 @@
         <h1>Bem-vindo à gestão de dados administrativos do ARGOS!</h1>
         <p>Registre, altere, delete e veja todos os dados.<br>Como podemos ajudar você hoje?</p>
 
-        <!-- Entrar na página inicial -->
-
-        <a class="btn-entrar" href="../home/home.html">
+        <a class="btn-entrar" href="home.html">
             Entrar <i class="fa-solid fa-arrow-right"></i>
         </a>
 
-        <!-- Tobby Tobias 💚 -->
-
-        <img class="mascote" src="../assets/img/mascote-boas-vindas.png" alt="Mascote do ARGOS acenando">
+        <img class="mascote" src="assets/img/mascote-boas-vindas.png" alt="Mascote do ARGOS acenando">
 
     </section>
 </main>

@@ -285,15 +285,19 @@ body {
     gap: 8px;
 }
 
+
+/* a tabela rola para o lado. */
 .tabela tbody td {
     white-space: nowrap;
 }
 
+/* Textos longos podem quebrar de linha */
 .tabela tbody td.col-texto {
     white-space: normal;
     min-width: 240px;
 }
 
+/* Selo TRUE / FALSE */
 .selo {
     display: inline-block;
     min-width: 84px;
@@ -330,6 +334,8 @@ html.dark .selo-nao {
     color: #E3A47A;
 }
 
+
+/* RESPONSIVO*/
 .painel-acoes {
     flex-wrap: wrap;
 }
@@ -369,7 +375,31 @@ html.dark .selo-nao {
     }
 
     .tabela .col-acoes {
-        width: 104px;
+        width: 52px;
+        padding-left: 6px;
+        padding-right: 6px;
+        box-shadow: -6px 0 8px -6px rgba(0, 0, 0, 0.18);
+    }
+
+    .tabela thead th.col-acoes {
+        font-size: 10px;
+        letter-spacing: 0.02em;
+    }
+
+    .tabela tbody td.col-acoes {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .tabela .col-acoes .btn-icone {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tabela .col-acoes .btn-icone + .btn-icone {
+        margin-left: auto;
+        margin-top: 6px;
     }
 
     .painel-rodape {

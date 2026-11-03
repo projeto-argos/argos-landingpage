@@ -1,3 +1,6 @@
+/*
+ * carregamento.js - mostra a tela de carregamento
+ */
 (function () {
     const tela = document.getElementById("carregamento");
     if (!tela) {

@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotes - Argos</title>
+
+    <!-- Fontes do Figma  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+    <link rel="stylesheet" href="assets/css/pesquisa.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+    <script src="assets/js/pesquisa.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class="active"><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="conteudo">
+
+    
+
+    <section class="painel">
+
+        <div class="painel-topo">
+            <h1>Lotes cadastrados</h1>
+
+            <div class="painel-acoes">
+            <details class="filtro ">
+                <summary>Filtrar</summary>
+                <form method="get" action="lots.html">
+                    <div class="campo"><label for="filtro-lotCode">Código lote</label><input type="text" id="filtro-lotCode" name="lotCode" value=""/></div>
+                    
+                        <div class="campo">
+                            <label for="filtro-herdId">Rebanho</label>
+                            <select id="filtro-herdId" name="herdId">
+                                <option value="">Todos</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000400" >Rebanho Nelore A</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000401" >Rebanho Angus B</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000402" >Rebanho Hereford</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000403" >Rebanho Brahman</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000404" >Rebanho Senepol</option>
+                                
+                                    <option value="00000000-0000-4000-8000-000000000405" >Rebanho Tabapuã</option>
+                                
+                            </select>
+                        </div>
+                    
+                    <div class="campo">
+                        <label for="filtro-category">Categoria</label>
+                        <select id="filtro-category" name="category">
+                            <option value="">Todas</option>
+                            <option value="CRIA" >Cria</option>
+                            <option value="RECRIA" >Recria</option>
+                            <option value="ENGORDA" >Engorda</option>
+                        </select>
+                    </div>
+                    <div class="campo"><label for="filtro-headCount">Quantidade de cabeças</label><input type="number" id="filtro-headCount" name="headCount" min="0" value=""/></div>
+                    <div class="campo"><label for="filtro-openDate">Data de abertura</label><input type="date" id="filtro-openDate" name="openDate" value=""/></div>
+                    <div class="filtro-acoes"><a href="lots.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                </form>
+            </details>
+            <button type="button" class="btn btn-escuro"
+                    data-abrir="modalLote" data-acao="criar" data-action="#"
+                    data-titulo="Cadastrar Lote" data-botao="Cadastrar">
+                <i class="fa-solid fa-plus"></i> Novo lote
+            </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por rebanho
+                </button>
+            </div>
+        </div>
+
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="campoBusca" placeholder="Buscar lote ..." aria-label="Buscar lote" autocomplete="off">
+        </div>
+
+        <div class="tabela-scroll">
+            <table class="tabela" id="tabela">
+                <thead>
+                <tr>
+                    <th>Código lote</th>
+                    <th>Rebanho</th>
+                    <th>Categoria</th>
+                    <th>Quantidade de cabeças</th>
+                    <th>Data de abertura</th>
+                    <th>Última atualização</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="linha">
+                        <td>LT-2026-001</td>
+                        <td>Rebanho Nelore A</td>
+                        <td>
+                            Engorda
+                        </td>
+                        <td>40</td>
+                        <td>2026-03-10</td>
+                        <td class="col-data">28/10/2026 08:20</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000500"
+                                    data-herd-id="00000000-0000-4000-8000-000000000400"
+                                    data-lot-code="LT-2026-001"
+                                    data-category="ENGORDA"
+                                    data-head-count="40"
+                                    data-open-date="2026-03-10">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000500"
+                                    data-lot-code="LT-2026-001">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-002</td>
+                        <td>Rebanho Nelore A</td>
+                        <td>
+                            Recria
+                        </td>
+                        <td>35</td>
+                        <td>2026-04-02</td>
+                        <td class="col-data">27/10/2026 12:00</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000501"
+                                    data-herd-id="00000000-0000-4000-8000-000000000400"
+                                    data-lot-code="LT-2026-002"
+                                    data-category="RECRIA"
+                                    data-head-count="35"
+                                    data-open-date="2026-04-02">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000501"
+                                    data-lot-code="LT-2026-002">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-003</td>
+                        <td>Rebanho Angus B</td>
+                        <td>
+                            Cria
+                        </td>
+                        <td>25</td>
+                        <td>2026-05-15</td>
+                        <td class="col-data">26/10/2026 15:00</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000502"
+                                    data-herd-id="00000000-0000-4000-8000-000000000401"
+                                    data-lot-code="LT-2026-003"
+                                    data-category="CRIA"
+                                    data-head-count="25"
+                                    data-open-date="2026-05-15">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000502"
+                                    data-lot-code="LT-2026-003">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-004</td>
+                        <td>Rebanho Hereford</td>
+                        <td>
+                            Engorda
+                        </td>
+                        <td>30</td>
+                        <td>2026-06-01</td>
+                        <td class="col-data">25/10/2026 10:10</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000503"
+                                    data-herd-id="00000000-0000-4000-8000-000000000402"
+                                    data-lot-code="LT-2026-004"
+                                    data-category="ENGORDA"
+                                    data-head-count="30"
+                                    data-open-date="2026-06-01">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000503"
+                                    data-lot-code="LT-2026-004">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-005</td>
+                        <td>Rebanho Brahman</td>
+                        <td>
+                            Recria
+                        </td>
+                        <td>50</td>
+                        <td>2026-06-20</td>
+                        <td class="col-data">24/10/2026 17:30</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000504"
+                                    data-herd-id="00000000-0000-4000-8000-000000000403"
+                                    data-lot-code="LT-2026-005"
+                                    data-category="RECRIA"
+                                    data-head-count="50"
+                                    data-open-date="2026-06-20">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000504"
+                                    data-lot-code="LT-2026-005">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-006</td>
+                        <td>Rebanho Senepol</td>
+                        <td>
+                            Engorda
+                        </td>
+                        <td>45</td>
+                        <td>2026-07-08</td>
+                        <td class="col-data">23/10/2026 09:25</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar lote"
+                                    data-abrir="modalLote" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Lote" data-botao="Salvar"
+                                    data-id-lot="00000000-0000-4000-8000-000000000505"
+                                    data-herd-id="00000000-0000-4000-8000-000000000404"
+                                    data-lot-code="LT-2026-006"
+                                    data-category="ENGORDA"
+                                    data-head-count="45"
+                                    data-open-date="2026-07-08">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir lote"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000505"
+                                    data-lot-code="LT-2026-006">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                <tr class="linha-vazia" id="linhaVazia" hidden>
+                    <td colspan="7">Nenhum resultado encontrado.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="painel-rodape">
+            <p id="infoPaginas" aria-live="polite"></p>
+            <div class="paginacao">
+                <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- POP-UP -->
+    <dialog class="modal" id="modalLote">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Cadastrar Lote</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="idLot" value="">
+
+                <div class="form-grade">
+                    <div class="campo">
+                        <label for="campoCodigo">Código do Lote</label>
+                        <input type="text" id="campoCodigo" name="lotCode" placeholder="ex: LOTE-001"
+                               required maxlength="20" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoCategoria">Categoria</label>
+                        <select id="campoCategoria" name="category" required>
+                            <option value="" disabled selected>Selecione a categoria</option>
+                            <option value="CRIA">Cria</option>
+                            <option value="RECRIA">Recria</option>
+                            <option value="ENGORDA">Engorda</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="campoQuantidade">Quantidade de Cabeças</label>
+                        <input type="number" id="campoQuantidade" name="headCount" placeholder="ex: 10"
+                               required min="0" step="1" inputmode="numeric" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoDataAbertura">Data de Abertura</label>
+                        <input type="date" id="campoDataAbertura" name="openDate" min="1900-01-01" required>
+                    </div>
+                    <div class="campo largura-total">
+                        <label for="campoRebanho">Rebanho</label>
+                        <div class="pesquisa" data-pesquisa data-name="herdId" data-obrigatorio>
+                            <input type="text" id="campoRebanho" class="pesquisa-texto" placeholder="Pesquisar rebanho" aria-label="Rebanho">
+                            <ul class="pesquisa-lista" hidden>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000400">Rebanho Nelore A</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000401">Rebanho Angus B</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000402">Rebanho Hereford</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000403">Rebanho Brahman</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000404">Rebanho Senepol</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000405">Rebanho Tabapuã</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-rodape">
+                    <button type="submit" class="btn-pilula">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- POP-UP -->
+    <dialog class="modal modal-pequeno" id="modalExcluir">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Excluir Lote</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="id" value="">
+
+                <p class="modal-texto">Tem certeza que deseja excluir o lote <strong data-mostrar="lotCode"></strong>?</p>
+
+                <div class="form-rodape">
+                    <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                    <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir lotes do rebanho</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirRebanho">Rebanho</label>
+                        <select id="campoExcluirRebanho" name="herdId" required>
+                            <option value="">Selecione</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000400">Rebanho Nelore A</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000401">Rebanho Angus B</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000402">Rebanho Hereford</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000403">Rebanho Brahman</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000404">Rebanho Senepol</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000405">Rebanho Tabapuã</option>
+                            
+                        </select>
+                    </div>
+
+                    <p class="modal-texto"><strong>Atenção:</strong> isso exclui <strong>TODOS</strong> os lotes deste rebanho, junto com os animais deles.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir todos</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>

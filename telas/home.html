@@ -1,42 +1,42 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Título da página -->
     <title>Página inicial - Argos</title>
 
-    <!-- Fontes importadas  -->
+    <!-- Fontes do Figma  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/tables.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 
     <!-- JAVASCRIPT -->
-    <script src="../assets/js/sidebar.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 </head>
 <body>
 
-    <!-- Menu para navegação das páginas -->
+<!-- Botão do menu no celular -->
 <button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
     <i class="fa-solid fa-bars"></i>
 </button>
-
 <div class="sidebar-fundo"></div>
 
 <nav class="sidebar">
     <header>
         <img class="logo-completo"
-             src="../assets/img/logo-argos.png"
+             src="assets/img/logo-argos.png"
              alt="Argos">
 
         <img class="logo-icone"
-             src="../assets/img/logo-argos-icone.png"
+             src="assets/img/logo-argos-icone.png"
              alt="Argos">
 
         <button type="button" class="toggle"
@@ -49,23 +49,18 @@
         </button>
     </header>
 
-    <!-- Páginas -->
-
     <div class="menu-bar">
         <ul class="menu-links">
-            <li><a href="../home/home.html" class="active"><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
-            <li><a href="../users/users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
-            <li><a href="../properties/properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
-            <li><a href="../animals/animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
-            <li><a href="../lots/lots.html" class=""><div class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></div><span class="text">Lote</span></a></li>
-            <li><a href="../herds/herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
-            <li><a href="../admins/admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+            <li><a href="home.html" class="active"><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
         </ul>
 
         <ul class="bottom-content">
-
-            <!-- Modo escuro e claro-->
-
             <li>
                 <button type="button" class="mode-btn">
                     <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
@@ -74,75 +69,66 @@
                     <span class="switch"></span>
                 </button>
             </li>
-
-            <!-- Sair -->
-
-            <li><a href="../auth/login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
         </ul>
     </div>
 </nav>
 
-    <!-- Tela principal -->
-
 <main class="conteudo">
-
-    <!-- Totais de registros -->
 
     <h1 class="home-titulo">Total de registros</h1>
 
     <section class="cards-grade" aria-label="Total de registros por tabela">
 
-        <a class="card-total" href="../users/users.html">
+        <a class="card-total" href="users.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de usuários</span>
                 <span class="card-total-icone"><i class="fa-solid fa-user"></i></span>
             </div>
-            <p class="card-total-numero">107</p>
+            <p class="card-total-numero">7</p>
         </a>
 
-        <a class="card-total" href="../properties/properties.html">
+        <a class="card-total" href="properties.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de propriedades</span>
                 <span class="card-total-icone"><i class="fa-solid fa-location-dot"></i></span>
             </div>
-            <p class="card-total-numero">67</p>
+            <p class="card-total-numero">6</p>
         </a>
 
-        <a class="card-total" href="../animals/animals.html">
+        <a class="card-total" href="animals.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de animais</span>
                 <span class="card-total-icone"><i class="fa-solid fa-cow"></i></span>
             </div>
-            <p class="card-total-numero">378</p>
+            <p class="card-total-numero">7</p>
         </a>
 
-        <a class="card-total" href="../lots/lots.html">
+        <a class="card-total" href="lots.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de lotes</span>
-                <span class="card-total-icone"><div class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></div></span>
+                <span class="card-total-icone"><i class="fa-solid fa-handshake"></i></span>
             </div>
-            <p class="card-total-numero">239</p>
+            <p class="card-total-numero">6</p>
         </a>
 
-        <a class="card-total" href="../herds/herds.html">
+        <a class="card-total" href="herds.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de rebanhos</span>
                 <span class="card-total-icone"><i class="fa-solid fa-warehouse icon"></i></span>
             </div>
-            <p class="card-total-numero">97</p>
+            <p class="card-total-numero">6</p>
         </a>
 
-        <a class="card-total" href="../admins/admins.html">
+        <a class="card-total" href="admins.html">
             <div class="card-total-topo">
                 <span class="card-total-rotulo">Total de admins</span>
                 <span class="card-total-icone"><i class="fa-solid fa-user-gear"></i></span>
             </div>
-            <p class="card-total-numero">11</p>
+            <p class="card-total-numero">6</p>
         </a>
 
     </section>
-
-    <!-- Últimas atualizações -->
 
     <h2 class="home-titulo home-titulo-secao">Últimas atualizações</h2>
 
@@ -156,28 +142,44 @@
                     <th>Atualizado em</th>
                 </tr>
                 </thead>
-
                 <tbody>
-
-                    <!-- Atualizações mais recentes -->
-
+                
                     <tr class="linha">
-                        <td>Amanda Rodrigues</td>
-                        <td>ADMIN</td>
-                        <td>01/11/2026</td>
+                        <td>Amanda Rodrigues Lima</td>
+                        <td>Admin</td>
+                        <td>28/10/2026 14:32</td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0001</td>
+                        <td>Animal</td>
+                        <td>28/10/2026 09:30</td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Fazenda Recanto do Vale</td>
+                        <td>Propriedade</td>
+                        <td>28/10/2026 09:00</td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>LT-2026-001</td>
+                        <td>Lote</td>
+                        <td>28/10/2026 08:20</td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Rebanho Nelore A</td>
+                        <td>Rebanho</td>
+                        <td>28/10/2026 08:00</td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>João Pedro Almeida</td>
+                        <td>Usuário</td>
+                        <td>28/10/2026 10:10</td>
                     </tr>
 
-                    <tr class="linha">
-                        <td>Nelore Precoce</td>
-                        <td>REBANHO</td>
-                        <td>29/10/2026</td>
-                    </tr>
-
-                    <tr class="linha">
-                        <td>Estância Cerro Azul</td>
-                        <td>PROPRIEDADE</td>
-                        <td>31/10/2026</td>
-                    </tr>
                 
                 </tbody>
             </table>

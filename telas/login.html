@@ -1,28 +1,27 @@
+
+
+<!-- Endereço da landing page -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Título da página -->
     <title>ARGOS | Login</title>
 
-    <!-- Fontes importadas  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Imagem do logotipo -->
-    <link rel="icon" href="../assets/img/LogoTipo.svg">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 
 <main class="login">
 
-    <!-- Onda verde escura -->
+    <a href="https://argos-landingpage.vercel.app/" class="btn_voltar" aria-label="Voltar para a página inicial do ARGOS">
+        <span aria-hidden="true">&larr;</span> Voltar
+    </a>
 
     <div class="onda_verde_login">
         <svg preserveAspectRatio="none" viewBox="0 0 632 884" fill="none">
@@ -37,15 +36,13 @@
     </div>
 
     <div class="logo_login">
-        <a class="brand" href="../auth/login.html"><img src="../assets/img/Logo Deitada clara.svg" alt="Argos"></a>
+        <a class="brand" href="login.html"><img src="assets/img/logo-horizontal-claro.svg" alt="Argos"></a>
     </div>
 
     <p class="slogan_login">Gestão de pecuária e de medicamentos aplicados em bovinos</p>
 
-    <!-- Tobby Tobias 💚 -->
-
     <div class="personagem_login">
-        <img src="../assets/img/mascote-login.webp" alt="Mascote do ARGOS" width="600" height="958">
+        <img src="assets/img/mascote-login.webp" alt="Mascote do ARGOS" width="600" height="958">
     </div>
 
     <div class="arvore_login">
@@ -58,12 +55,10 @@
 
     <section class="area_form">
 
-        <form class="form_login" id="formLogin" action="../welcome/welcome.html">
+        <form class="form_login" id="formLogin" method="post" action="login.html">
 
-            <h1 class="form_titulo">BEM-VINDO DE VOLTA!</h1>
+            <h1 class="form_titulo">BEM-VINDO DE VOLTA ADMIN!</h1>
             <p class="form_subtitulo">Faça login como administrador para continuar</p>
-
-            <!-- Preenchimento do email -->
 
             <div class="campo">
                 <label for="email">E-mail</label>
@@ -72,8 +67,6 @@
                     <input type="email" id="email" name="email" value="" placeholder="seu@email.com" autocomplete="email" required>
                 </div>
             </div>
-
-            <!-- Preenchimento da senha -->
 
             <div class="campo">
                 <label for="senha">Senha</label>
@@ -89,6 +82,8 @@
 
             <p class="msg_erro" id="msgErro" role="alert" aria-live="polite"></p>
 
+            <!-- Aqui entra o widget Cloudflare Turnstile (captcha), 300 x 65 px -->
+            <div class="cf-turnstile" style="width:300px;height:65px;border:1px dashed #6BADA8;border-radius:4px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#1A6A64;">Verificação Cloudflare Turnstile</div>
             <button type="submit" class="btn_entrar" id="btnEntrar">Entrar</button>
 
         </form>
@@ -97,33 +92,6 @@
 
 </main>
 
-<script>
-
-    // Visualização da senha
-
-    const campoSenha = document.getElementById("senha");
-    const botaoOlho = document.getElementById("btnOlho");
-    const olhoAberto = document.getElementById("olhoAberto");
-    const olhoFechado = document.getElementById("olhoFechado");
-
-    botaoOlho.addEventListener("click", () => {
-        const estavaEscondida = campoSenha.type === "password";
-
-        campoSenha.type = estavaEscondida ? "text" : "password";
-        olhoAberto.toggleAttribute("hidden", !estavaEscondida);   // senha visível
-        olhoFechado.toggleAttribute("hidden", estavaEscondida);   // senha escondida
-        botaoOlho.setAttribute("aria-label", estavaEscondida ? "Esconder senha" : "Mostrar senha");
-    });
-
-    // Encaminhamento para a página de boas vindas com o preenchimento do email e da senha
-
-    const formLogin = document.getElementById("formLogin");
-
-        formLogin.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        window.location.href = "../home/welcome.html";
-    });
-</script>
+<script src="assets/js/login.js" defer></script>
 </body>
 </html>

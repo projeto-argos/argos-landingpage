@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avisos - Argos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" href="assets/img/logo-tipo.svg">
+<link rel="stylesheet" href="assets/css/sidebar.css">
+<link rel="stylesheet" href="assets/css/tables.css">
+<link rel="stylesheet" href="assets/css/forms.css">
+<link rel="stylesheet" href="assets/css/feedbackMessages.css">
+</head>
+<body>
+<main class="conteudo" style="max-width:720px;margin:0 auto;">
+<h1>Avisos (toasts)</h1>
+<!-- No sistema o aviso aparece no topo da tela depois de cadastrar, editar ou excluir -->
+<div class="toast toast-sucesso" role="status" style="position:static;margin:16px auto;">
+    <span class="toast-icone"><i class="fa-solid fa-check"></i></span>
+    <div class="toast-texto"><strong>Admin cadastrado com sucesso</strong>
+        <p>Os dados já aparecem na tabela.</p>
+    </div>
+    <button type="button" class="toast-fechar" aria-label="Fechar aviso"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="toast toast-erro" role="status" style="position:static;margin:16px auto;">
+    <span class="toast-icone"><i class="fa-solid fa-exclamation"></i></span>
+    <div class="toast-texto"><strong>Não foi possível cadastrar</strong>
+        <p>Já existe um admin com esse CPF.</p>
+    </div>
+    <button type="button" class="toast-fechar" aria-label="Fechar aviso"><i class="fa-solid fa-xmark"></i></button>
+</div>
+</main>
+</body>
+</html>

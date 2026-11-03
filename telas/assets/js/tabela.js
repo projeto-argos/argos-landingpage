@@ -1,3 +1,7 @@
+/*
+ * tabela.js - busca e paginação de qualquer tabela.
+ * Serve para todas as telas de listagem.
+ */
 const LINHAS_POR_PAGINA = 10;
 let paginaAtual = 1;
 
@@ -29,7 +33,7 @@ document.querySelectorAll(".telefone").forEach(function (celula) {
 });
 
 
-let filtrosAplicados = new URLSearchParams(window.location.search);
+let filtrosAplicados = new URLSearchParams();
 
 function aplicarFiltros(parametros) {
     filtrosAplicados = parametros;
