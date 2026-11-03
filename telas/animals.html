@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animais - Argos</title>
+
+    <!-- Fontes do Figma -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+    <link rel="stylesheet" href="assets/css/pesquisa.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+    <script src="assets/js/pesquisa.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class="active"><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="conteudo">
+
+        
+
+        <section class="painel">
+
+        <div class="painel-topo">
+            <h1>Animais cadastrados</h1>
+            <div class="painel-acoes">
+                
+                <details class="filtro ">
+                    <summary>Filtrar</summary>
+                    <form method="get" action="animals.html">
+                            <div class="campo"><label for="filtro-earTag">Brinco</label><input type="text" id="filtro-earTag" name="earTag" value=""/></div>
+                            <div class="campo"><label for="filtro-lotId">Lote</label><select id="filtro-lotId" name="lotId"><option value="">Todos</option><option value="00000000-0000-4000-8000-000000000500" >LT-2026-001</option><option value="00000000-0000-4000-8000-000000000501" >LT-2026-002</option><option value="00000000-0000-4000-8000-000000000502" >LT-2026-003</option><option value="00000000-0000-4000-8000-000000000503" >LT-2026-004</option><option value="00000000-0000-4000-8000-000000000504" >LT-2026-005</option><option value="00000000-0000-4000-8000-000000000505" >LT-2026-006</option></select></div>
+                            <div class="campo"><label for="filtro-exceptionReason">Motivo da exceção</label><input type="text" id="filtro-exceptionReason" name="exceptionReason" value=""/></div>
+                        <div class="filtro-acoes"><a href="animals.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                    </form>
+                </details>
+                <button type="button" class="btn btn-escuro"
+                    data-abrir="modalAnimal" data-acao="criar" data-action="#"
+                    data-titulo="Cadastrar Animal" data-botao="Cadastrar">
+                <i class="fa-solid fa-plus"></i> Novo animal
+            </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por brinco
+                </button>
+        </div>
+            </div>
+
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="campoBusca" placeholder="Buscar animal ..." aria-label="Buscar animal" autocomplete="off">
+        </div>
+
+        <div class="tabela-scroll">
+            <table class="tabela" id="tabela">
+                <thead>
+                <tr>
+                    <th>Brinco</th>
+                    <th>Lote</th>
+                    <th>Peso (kg)</th>
+                    <th>Data de nascimento</th>
+                    <th>Data início exceção</th>
+                    <th>Data fim exceção</th>
+                    <th>Motivo exceção</th>
+                    <th>Observações</th>
+                    <th>Última atualização</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="linha">
+                        <td>BR-0001</td>
+                        <td>LT-2026-001</td>
+                        <td>452,50</td>
+                        <td>14/02/2023</td>
+                        <td>01/10/2026</td>
+                        <td>15/10/2026</td>
+                        <td class="col-texto">Vermífugo</td>
+                        <td class="col-texto">Animal calmo</td>
+                        <td class="col-data">28/10/2026 09:30</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000600"
+                                    data-ear-tag="BR-0001"
+                                    data-weight="452.5"
+                                    data-exception-reason="Vermífugo"
+                                    data-notes="Animal calmo"
+                                    data-birth-date="2023-02-14"
+                                    data-exception-start-date="2026-10-01"
+                                    data-exception-end-date="2026-10-15"
+                                    data-lot-id="00000000-0000-4000-8000-000000000500"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000500"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000600"
+                                    data-ear-tag="BR-0001">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0002</td>
+                        <td>LT-2026-001</td>
+                        <td>468,00</td>
+                        <td>02/03/2023</td>
+                        <td>05/10/2026</td>
+                        <td>20/10/2026</td>
+                        <td class="col-texto">Antibiótico</td>
+                        <td class="col-texto"></td>
+                        <td class="col-data">27/10/2026 10:00</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000601"
+                                    data-ear-tag="BR-0002"
+                                    data-weight="468.0"
+                                    data-exception-reason="Antibiótico"
+                                    data-notes=""
+                                    data-birth-date="2023-03-02"
+                                    data-exception-start-date="2026-10-05"
+                                    data-exception-end-date="2026-10-20"
+                                    data-lot-id="00000000-0000-4000-8000-000000000500"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000500"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000601"
+                                    data-ear-tag="BR-0002">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0003</td>
+                        <td>LT-2026-002</td>
+                        <td>390,25</td>
+                        <td>18/06/2023</td>
+                        <td>20/09/2026</td>
+                        <td>04/10/2026</td>
+                        <td class="col-texto">Vacina aftosa</td>
+                        <td class="col-texto">Revisar peso</td>
+                        <td class="col-data">26/10/2026 13:20</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000602"
+                                    data-ear-tag="BR-0003"
+                                    data-weight="390.25"
+                                    data-exception-reason="Vacina aftosa"
+                                    data-notes="Revisar peso"
+                                    data-birth-date="2023-06-18"
+                                    data-exception-start-date="2026-09-20"
+                                    data-exception-end-date="2026-10-04"
+                                    data-lot-id="00000000-0000-4000-8000-000000000501"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000501"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000602"
+                                    data-ear-tag="BR-0003">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0004</td>
+                        <td>LT-2026-003</td>
+                        <td>210,00</td>
+                        <td>09/01/2024</td>
+                        <td>10/10/2026</td>
+                        <td>24/10/2026</td>
+                        <td class="col-texto">Suplemento</td>
+                        <td class="col-texto">Bezerro</td>
+                        <td class="col-data">25/10/2026 08:45</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000603"
+                                    data-ear-tag="BR-0004"
+                                    data-weight="210.0"
+                                    data-exception-reason="Suplemento"
+                                    data-notes="Bezerro"
+                                    data-birth-date="2024-01-09"
+                                    data-exception-start-date="2026-10-10"
+                                    data-exception-end-date="2026-10-24"
+                                    data-lot-id="00000000-0000-4000-8000-000000000502"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000502"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000603"
+                                    data-ear-tag="BR-0004">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0005</td>
+                        <td>LT-2026-004</td>
+                        <td>501,75</td>
+                        <td>30/11/2022</td>
+                        <td>12/10/2026</td>
+                        <td>26/10/2026</td>
+                        <td class="col-texto">Anti-inflamatório</td>
+                        <td class="col-texto">Em observação</td>
+                        <td class="col-data">24/10/2026 15:15</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000604"
+                                    data-ear-tag="BR-0005"
+                                    data-weight="501.75"
+                                    data-exception-reason="Anti-inflamatório"
+                                    data-notes="Em observação"
+                                    data-birth-date="2022-11-30"
+                                    data-exception-start-date="2026-10-12"
+                                    data-exception-end-date="2026-10-26"
+                                    data-lot-id="00000000-0000-4000-8000-000000000503"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000503"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000604"
+                                    data-ear-tag="BR-0005">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0006</td>
+                        <td>LT-2026-005</td>
+                        <td>430,00</td>
+                        <td>21/04/2023</td>
+                        <td>02/10/2026</td>
+                        <td>16/10/2026</td>
+                        <td class="col-texto">Vermífugo</td>
+                        <td class="col-texto"></td>
+                        <td class="col-data">23/10/2026 11:40</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000605"
+                                    data-ear-tag="BR-0006"
+                                    data-weight="430.0"
+                                    data-exception-reason="Vermífugo"
+                                    data-notes=""
+                                    data-birth-date="2023-04-21"
+                                    data-exception-start-date="2026-10-02"
+                                    data-exception-end-date="2026-10-16"
+                                    data-lot-id="00000000-0000-4000-8000-000000000504"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000504"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000605"
+                                    data-ear-tag="BR-0006">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>BR-0007</td>
+                        <td>LT-2026-006</td>
+                        <td>475,50</td>
+                        <td>12/01/2023</td>
+                        <td>08/10/2026</td>
+                        <td>22/10/2026</td>
+                        <td class="col-texto">Carrapaticida</td>
+                        <td class="col-texto"></td>
+                        <td class="col-data">22/10/2026 16:05</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar animal"
+                                    data-abrir="modalAnimal" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Animal" data-botao="Salvar"
+                                    data-id-animal="00000000-0000-4000-8000-000000000606"
+                                    data-ear-tag="BR-0007"
+                                    data-weight="475.5"
+                                    data-exception-reason="Carrapaticida"
+                                    data-notes=""
+                                    data-birth-date="2023-01-12"
+                                    data-exception-start-date="2026-10-08"
+                                    data-exception-end-date="2026-10-22"
+                                    data-lot-id="00000000-0000-4000-8000-000000000505"
+                                    data-origin-lot-id="00000000-0000-4000-8000-000000000505"
+                                    data-cleared-for-slaughter="False">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir animal"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000606"
+                                    data-ear-tag="BR-0007">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                <tr class="linha-vazia" id="linhaVazia" hidden>
+                    <td colspan="10">Nenhum resultado encontrado.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="painel-rodape">
+            <p id="infoPaginas" aria-live="polite"></p>
+            <div class="paginacao">
+                <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- POP-UP -->
+    <dialog class="modal" id="modalAnimal">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Cadastrar Animal</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="idAnimal" value="">
+                <input type="hidden" name="originLotId" value="">
+
+                <div class="form-grade">
+                    <div class="campo">
+                        <label for="campoBrinco">Brinco</label>
+                        <input type="text" id="campoBrinco" name="earTag" placeholder="ex: BR-26-0001"
+                               required maxlength="20" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoLote">Lote</label>
+                        <div class="pesquisa" data-pesquisa data-name="lotId" data-obrigatorio>
+                            <input type="text" id="campoLote" class="pesquisa-texto" placeholder="Pesquisar lote" aria-label="Lote">
+                            <ul class="pesquisa-lista" hidden>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000500">LT-2026-001</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000501">LT-2026-002</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000502">LT-2026-003</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000503">LT-2026-004</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000504">LT-2026-005</li>
+                                
+                                    <li data-id="00000000-0000-4000-8000-000000000505">LT-2026-006</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="campoPeso">Peso</label>
+                        <input type="number" id="campoPeso" name="weight" placeholder="ex: 400.00"
+                               required min="10" max="99999.99" step="0.01" inputmode="decimal" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="clearedForSlaughter" value="false">
+                    <div class="campo largura-total">
+                        <label for="campoMotivo">Motivo exceção</label>
+                        <input type="text" id="campoMotivo" name="exceptionReason" placeholder="ex: Parainfluenza Bovino (PI-3)"
+                               maxlength="255" autocomplete="off">
+                    </div>
+                    <div class="campo largura-total">
+                        <label for="campoObservacoes">Observações</label>
+                        <input type="text" id="campoObservacoes" name="notes" placeholder="ex: Vírus destrói pulmões de bezerros."
+                               maxlength="255" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoNascimento">Data de Nascimento</label>
+                        <input type="date" id="campoNascimento" name="birthDate" min="1900-01-01" required>
+                    </div>
+                    <div class="campo">
+                        <label for="campoInicioExcecao">Data início exceção</label>
+                        <input type="date" id="campoInicioExcecao" name="exceptionStartDate" min="1900-01-01" required>
+                    </div>
+                    <div class="campo">
+                        <label for="campoFimExcecao">Data final da exceção</label>
+                        <input type="date" id="campoFimExcecao" name="exceptionEndDate" min="1900-01-01" max="2100-12-31">
+                    </div>
+                </div>
+
+                <div class="form-rodape">
+                    <button type="submit" class="btn-pilula">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- POP-UP -->
+    <dialog class="modal modal-pequeno" id="modalExcluir">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Excluir Animal</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="id" value="">
+
+                <p class="modal-texto">Tem certeza que deseja excluir o animal <strong data-mostrar="earTag"></strong>?</p>
+
+                <div class="form-rodape">
+                    <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                    <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir animal pelo brinco</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirBrinco">Brinco do animal</label>
+                        <input type="text" id="campoExcluirBrinco" name="earTag" placeholder="ex: BR-26-0001" required autocomplete="off" maxlength="20">
+                    </div>
+
+                    <p class="modal-texto">O animal com esse brinco será excluído. Se o mesmo brinco existir em lotes diferentes, a exclusão é recusada: nesse caso, exclua pela tabela.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>
+

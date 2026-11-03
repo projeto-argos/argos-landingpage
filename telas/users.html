@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - Argos</title>
+
+    <!-- Fontes usadas no Figma  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class="active"><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="conteudo">
+
+        
+
+        <section class="painel">
+
+        <div class="painel-topo">
+            <h1>Usuários cadastrados</h1>
+
+            <div class="painel-acoes">
+
+                <details class="filtro ">
+                    <summary>Filtrar</summary>
+
+                    <form method="get" action="users.html">
+                        <div class="campo">
+                            <label for="filtroNome">Nome completo</label>
+                            <input type="text" id="filtroNome" name="fullName" placeholder="Ex.: João Silva"
+                                   value="">
+                        </div>
+                        <div class="campo">
+                            <label for="filtroCpf">CPF</label>
+                            <input type="text" id="filtroCpf" name="cpf" placeholder="Ex.: 12345678901"
+                                   value="">
+                        </div>
+                        <div class="campo">
+                            <label for="filtroEmail">E-mail</label>
+                            <input type="text" id="filtroEmail" name="email" placeholder="Ex.: joao@email.com"
+                                   value="">
+                        </div>
+                        <div class="campo">
+                            <label for="filtroTelefone">Telefone</label>
+                            <input type="text" id="filtroTelefone" name="phone" placeholder="Ex.: 11999999999"
+                                   value="">
+                        </div>
+                        <div class="campo">
+                            <label for="filtroCargo">Cargo</label>
+                            <input type="text" id="filtroCargo" name="role" placeholder="Ex.: Administrador"
+                                   value="">
+                        </div>
+
+                        <div class="filtro-acoes">
+                            <a href="users.html" class="btn-pilula btn-neutro">Limpar</a>
+                            <button type="submit" class="btn-pilula">Aplicar filtro</button>
+                        </div>
+                    </form>
+                </details>
+
+                <button type="button" class="btn btn-escuro"
+                        data-abrir="modalUser" data-acao="criar" data-action="#"
+                        data-titulo="Cadastrar Usuário" data-botao="Cadastrar">
+                    <i class="fa-solid fa-plus"></i> Novo usuário
+                </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por CPF
+                </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalReativar">
+                    <i class="fa-solid fa-rotate-left"></i> Reativar por CPF
+                </button>
+            </div>
+        </div>
+
+        <div class="busca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="campoBusca" placeholder="Buscar usuário ..." aria-label="Buscar usuário" autocomplete="off">
+        </div>
+
+        <div class="tabela-scroll">
+            <table class="tabela" id="tabela">
+                <thead>
+                <tr>
+                    <th>Nome completo</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Cargo</th>
+                    <th>Data de nascimento</th>
+                    <th>Telefone</th>
+                    <th>Última atualização</th>
+                    <th class="col-acoes">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="linha">
+                        <td>João Pedro Almeida</td>
+                        <td class="cpf">11122233344</td>
+                        <td>joao.almeida@fazenda.com</td>
+                        <td>Médico Veterinário</td>
+                        <td class="col-data">15/03/1988</td>
+                        <td class="telefone col-data">16991112222</td>
+                        <td class="col-data">28/10/2026 10:10</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000200"
+                                    data-full-name="João Pedro Almeida"
+                                    data-cpf="11122233344"
+                                    data-phone="16991112222"
+                                    data-email="joao.almeida@fazenda.com"
+                                    data-birth-date="1988-03-15"
+                                    data-role="Médico Veterinário">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000200"
+                                    data-full-name="João Pedro Almeida">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Maria Clara Ferreira</td>
+                        <td class="cpf">22233344455</td>
+                        <td>maria.ferreira@fazenda.com</td>
+                        <td>Gerente de fazenda</td>
+                        <td class="col-data">22/07/1992</td>
+                        <td class="telefone col-data">16992223333</td>
+                        <td class="col-data">27/10/2026 15:45</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000201"
+                                    data-full-name="Maria Clara Ferreira"
+                                    data-cpf="22233344455"
+                                    data-phone="16992223333"
+                                    data-email="maria.ferreira@fazenda.com"
+                                    data-birth-date="1992-07-22"
+                                    data-role="Gerente de fazenda">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000201"
+                                    data-full-name="Maria Clara Ferreira">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Roberto Nascimento</td>
+                        <td class="cpf">33344455566</td>
+                        <td>roberto.nasc@fazenda.com</td>
+                        <td>Peão</td>
+                        <td class="col-data">02/11/1979</td>
+                        <td class="telefone col-data">16993334444</td>
+                        <td class="col-data">26/10/2026 08:30</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000202"
+                                    data-full-name="Roberto Nascimento"
+                                    data-cpf="33344455566"
+                                    data-phone="16993334444"
+                                    data-email="roberto.nasc@fazenda.com"
+                                    data-birth-date="1979-11-02"
+                                    data-role="Peão">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000202"
+                                    data-full-name="Roberto Nascimento">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Luciana Barbosa</td>
+                        <td class="cpf">44455566677</td>
+                        <td>luciana.b@fazenda.com</td>
+                        <td>Zootecnista</td>
+                        <td class="col-data">30/01/1995</td>
+                        <td class="telefone col-data">16994445555</td>
+                        <td class="col-data">24/10/2026 13:00</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000203"
+                                    data-full-name="Luciana Barbosa"
+                                    data-cpf="44455566677"
+                                    data-phone="16994445555"
+                                    data-email="luciana.b@fazenda.com"
+                                    data-birth-date="1995-01-30"
+                                    data-role="Zootecnista">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000203"
+                                    data-full-name="Luciana Barbosa">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Paulo Henrique Dias</td>
+                        <td class="cpf">55566677788</td>
+                        <td>paulo.dias@fazenda.com</td>
+                        <td>Proprietário</td>
+                        <td class="col-data">09/09/1970</td>
+                        <td class="telefone col-data">16995556666</td>
+                        <td class="col-data">23/10/2026 19:12</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000204"
+                                    data-full-name="Paulo Henrique Dias"
+                                    data-cpf="55566677788"
+                                    data-phone="16995556666"
+                                    data-email="paulo.dias@fazenda.com"
+                                    data-birth-date="1970-09-09"
+                                    data-role="Proprietário">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000204"
+                                    data-full-name="Paulo Henrique Dias">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Tatiane Moreira</td>
+                        <td class="cpf">66677788899</td>
+                        <td>tatiane.m@fazenda.com</td>
+                        <td>Veterinária</td>
+                        <td class="col-data">18/05/1990</td>
+                        <td class="telefone col-data">16996667777</td>
+                        <td class="col-data">21/10/2026 11:25</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000205"
+                                    data-full-name="Tatiane Moreira"
+                                    data-cpf="66677788899"
+                                    data-phone="16996667777"
+                                    data-email="tatiane.m@fazenda.com"
+                                    data-birth-date="1990-05-18"
+                                    data-role="Veterinária">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000205"
+                                    data-full-name="Tatiane Moreira">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+                
+                    <tr class="linha">
+                        <td>Anderson Silva</td>
+                        <td class="cpf">77788899900</td>
+                        <td>anderson.silva@fazenda.com</td>
+                        <td>Capataz</td>
+                        <td class="col-data">27/12/1983</td>
+                        <td class="telefone col-data">16997778888</td>
+                        <td class="col-data">19/10/2026 07:50</td>
+                        <td class="col-acoes">
+                            <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar usuário"
+                                    data-abrir="modalUser" data-acao="editar" data-action="#"
+                                    data-titulo="Editar Usuário" data-botao="Salvar"
+                                    data-id-user="00000000-0000-4000-8000-000000000206"
+                                    data-full-name="Anderson Silva"
+                                    data-cpf="77788899900"
+                                    data-phone="16997778888"
+                                    data-email="anderson.silva@fazenda.com"
+                                    data-birth-date="1983-12-27"
+                                    data-role="Capataz">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir usuário"
+                                    data-abrir="modalExcluir"
+                                    data-id="00000000-0000-4000-8000-000000000206"
+                                    data-full-name="Anderson Silva">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                <tr class="linha-vazia" id="linhaVazia" hidden>
+                    <td colspan="8">Nenhum resultado encontrado.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="painel-rodape">
+            <p id="infoPaginas" aria-live="polite"></p>
+            <div class="paginacao">
+                <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- POP-UP -->
+    <dialog class="modal" id="modalUser">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Cadastrar Usuário</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="idUser" value="">
+
+                <div class="form-grade">
+                    <div class="campo">
+                        <label for="campoCpf">CPF</label>
+                        <input type="text" id="campoCpf" name="cpf" placeholder="ex: 12345678901"
+                               required inputmode="numeric" maxlength="11" pattern="\d{11}"
+                               title="Digite os 11 números do CPF, sem pontos e traço" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoTelefone">Telefone</label>
+                        <input type="tel" id="campoTelefone" name="phone" placeholder="ex: 11999999999"
+                               required inputmode="numeric" maxlength="11" pattern="\d{10,11}"
+                               title="DDD + número, só números (10 ou 11 dígitos)" autocomplete="off">
+                    </div>
+                    <div class="campo largura-total">
+                        <label for="campoNome">Nome Completo</label>
+                        <input type="text" id="campoNome" name="fullName" placeholder="ex: Adriana Francesca Lima"
+                               required maxlength="120" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoEmail">Email</label>
+                        <input type="email" id="campoEmail" name="email" placeholder="ex: adriana@gmail.com"
+                               required maxlength="120" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoNascimento">Data de Nascimento</label>
+                        <input type="date" id="campoNascimento" name="birthDate" required>
+                    </div>
+                    <div class="campo">
+                        <label for="campoCargo">Cargo</label>
+                        <input type="text" id="campoCargo" name="role" placeholder="ex: Médico Veterinário"
+                               required maxlength="50" autocomplete="off">
+                    </div>
+                    <div class="campo">
+                        <label for="campoSenha" data-senha-rotulo>Senha</label>
+                        <input type="password" id="campoSenha" name="password" placeholder="Defina a senha de acesso"
+                                   minlength="8" maxlength="64"
+                               data-senha data-placeholder-cadastro="Defina a senha de acesso"
+                               required autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-rodape">
+                    <button type="submit" class="btn-pilula">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- POP-UP -->
+    <dialog class="modal modal-pequeno" id="modalExcluir">
+        <div class="modal-caixa">
+            <div class="modal-topo">
+                <h2>Excluir Usuário</h2>
+                <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form method="post" action="#">
+                <input type="hidden" name="id" value="">
+
+                <p class="modal-texto">Tem certeza que deseja excluir <strong data-mostrar="fullName"></strong>?</p>
+
+                <div class="form-rodape">
+                    <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                    <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir usuário pelo CPF</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirCpf">CPF do usuário</label>
+                        <input type="text" id="campoExcluirCpf" name="cpf" placeholder="ex: 000.000.000-00" required autocomplete="off" inputmode="numeric" maxlength="14">
+                    </div>
+
+                    <p class="modal-texto">O usuário com esse CPF será excluído.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP: reativar um usuário excluído (soft delete) pelo CPF -->
+        <dialog class="modal modal-pequeno" id="modalReativar">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Reativar usuário pelo CPF</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoReativarCpf">CPF do usuário excluído</label>
+                        <input type="text" id="campoReativarCpf" name="cpf" placeholder="ex: 000.000.000-00" required autocomplete="off" inputmode="numeric" maxlength="14">
+                    </div>
+
+                    <p class="modal-texto">O usuário excluído com esse CPF volta para a lista. Os vínculos com propriedades não voltam: vincule-o de novo na propriedade.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula">Reativar</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>

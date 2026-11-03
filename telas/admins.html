@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admins - Argos</title>
+
+    <!-- Fontes do Figma  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class="active"><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main class="conteudo">
+
+        
+
+        <section class="painel">
+
+            <div class="painel-topo">
+                <h1>Admins cadastrados</h1>
+
+                <div class="painel-acoes">
+                <details class="filtro ">
+                    <summary>Filtrar</summary>
+                    <form method="get" action="admins.html">
+                            <div class="campo"><label for="filtro-fullName">Nome completo</label><input type="text" id="filtro-fullName" name="fullName" value=""/></div>
+                            <div class="campo"><label for="filtro-cpf">CPF</label><input type="text" id="filtro-cpf" name="cpf" value=""/></div>
+                            <div class="campo"><label for="filtro-email">E-mail</label><input type="text" id="filtro-email" name="email" value=""/></div>
+                            <div class="campo"><label for="filtro-phone">Telefone</label><input type="text" id="filtro-phone" name="phone" value=""/></div>
+                        <div class="filtro-acoes"><a href="admins.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                    </form>
+                </details>
+                <button type="button" class="btn btn-escuro"
+                        data-abrir="modalAdmin" data-acao="criar" data-action="#"
+                        data-titulo="Cadastrar Admin" data-botao="Cadastrar">
+                    <i class="fa-solid fa-plus"></i> Novo admin
+                </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por CPF
+                </button>
+                </div>
+            </div>
+
+            <div class="busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="campoBusca" placeholder="Buscar admin ..." aria-label="Buscar admin" autocomplete="off">
+            </div>
+
+            <div class="tabela-scroll">
+                <table class="tabela" id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Nome completo</th>
+                            <th>CPF</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Última atualização</th>
+                            <th class="col-acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                            <tr class="linha">
+                                <td>Amanda Rodrigues Lima</td>
+                                <td class="cpf">12345678909</td>
+                                <td>amanda.lima@argos.com</td>
+                                <td class="telefone">11987654321</td>
+                                <td class="col-data">28/10/2026 14:32</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000100"
+                                            data-full-name="Amanda Rodrigues Lima"
+                                            data-cpf="12345678909"
+                                            data-email="amanda.lima@argos.com"
+                                            data-phone="11987654321">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000100"
+                                            data-full-name="Amanda Rodrigues Lima">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Carlos Eduardo Souza</td>
+                                <td class="cpf">98765432100</td>
+                                <td>carlos.souza@argos.com</td>
+                                <td class="telefone">11976543210</td>
+                                <td class="col-data">27/10/2026 09:15</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000101"
+                                            data-full-name="Carlos Eduardo Souza"
+                                            data-cpf="98765432100"
+                                            data-email="carlos.souza@argos.com"
+                                            data-phone="11976543210">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000101"
+                                            data-full-name="Carlos Eduardo Souza">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Fernanda Alves Costa</td>
+                                <td class="cpf">45678912300</td>
+                                <td>fernanda.costa@argos.com</td>
+                                <td class="telefone">16991234567</td>
+                                <td class="col-data">25/10/2026 17:48</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000102"
+                                            data-full-name="Fernanda Alves Costa"
+                                            data-cpf="45678912300"
+                                            data-email="fernanda.costa@argos.com"
+                                            data-phone="16991234567">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000102"
+                                            data-full-name="Fernanda Alves Costa">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Murilo Paiva</td>
+                                <td class="cpf">32165498700</td>
+                                <td>murilo.paiva@argos.com</td>
+                                <td class="telefone">16988776655</td>
+                                <td class="col-data">22/10/2026 11:05</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000103"
+                                            data-full-name="Murilo Paiva"
+                                            data-cpf="32165498700"
+                                            data-email="murilo.paiva@argos.com"
+                                            data-phone="16988776655">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000103"
+                                            data-full-name="Murilo Paiva">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Lucca Cansani</td>
+                                <td class="cpf">74185296300</td>
+                                <td>lucca.cansani@argos.com</td>
+                                <td class="telefone">16977665544</td>
+                                <td class="col-data">20/10/2026 16:20</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000104"
+                                            data-full-name="Lucca Cansani"
+                                            data-cpf="74185296300"
+                                            data-email="lucca.cansani@argos.com"
+                                            data-phone="16977665544">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000104"
+                                            data-full-name="Lucca Cansani">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Beatriz Nogueira</td>
+                                <td class="cpf">85296374100</td>
+                                <td>beatriz.nogueira@argos.com</td>
+                                <td class="telefone">11966554433</td>
+                                <td class="col-data">18/10/2026 08:40</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar admin"
+                                            data-abrir="modalAdmin" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Admin" data-botao="Salvar"
+                                            data-id-admin="00000000-0000-4000-8000-000000000105"
+                                            data-full-name="Beatriz Nogueira"
+                                            data-cpf="85296374100"
+                                            data-email="beatriz.nogueira@argos.com"
+                                            data-phone="11966554433">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir admin"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000105"
+                                            data-full-name="Beatriz Nogueira">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        <tr class="linha-vazia" id="linhaVazia" hidden>
+                            <td colspan="6">Nenhum resultado encontrado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="painel-rodape">
+                <p id="infoPaginas" aria-live="polite"></p>
+                <div class="paginacao">
+                    <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                    <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- POP-UP -->
+        <dialog class="modal" id="modalAdmin">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Cadastrar Admin</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="idAdmin" value="">
+
+                    <div class="form-grade">
+                        <div class="campo">
+                            <label for="campoNome">Nome Completo</label>
+                            <input type="text" id="campoNome" name="fullName" placeholder="ex: Amanda Rodrigues Lima"
+                                   required maxlength="120" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoCpf">CPF</label>
+                            <input type="text" id="campoCpf" name="cpf" placeholder="ex: 12345678901"
+                                   required inputmode="numeric" maxlength="11" pattern="\d{11}"
+                                   title="Digite os 11 números do CPF, sem pontos e traço" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoEmail">Email</label>
+                            <input type="email" id="campoEmail" name="email" placeholder="ex: adriana@gmail.com"
+                                   required maxlength="120" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoTelefone">Telefone</label>
+                            <input type="tel" id="campoTelefone" name="phone" placeholder="ex: 11999999999"
+                                   required inputmode="numeric" maxlength="11" pattern="\d{10,11}"
+                                   title="DDD + número, só números (10 ou 11 dígitos)" autocomplete="off">
+                        </div>
+                        <div class="campo largura-total">
+                            <label for="campoSenha" data-senha-rotulo>Senha</label>
+                            <input type="password" id="campoSenha" name="password" placeholder="Defina a senha de acesso"
+                                   minlength="8" maxlength="64"
+                                   data-senha data-placeholder-cadastro="Defina a senha de acesso"
+                               required autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <div class="form-rodape">
+                        <button type="submit" class="btn-pilula">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP -->
+        <dialog class="modal modal-pequeno" id="modalExcluir">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir Admin</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="id" value="">
+
+                    <p class="modal-texto">Tem certeza que deseja excluir <strong data-mostrar="fullName"></strong>?</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir admin pelo CPF</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirCpf">CPF do admin</label>
+                        <input type="text" id="campoExcluirCpf" name="cpf" placeholder="ex: 000.000.000-00" required autocomplete="off" inputmode="numeric" maxlength="14">
+                    </div>
+
+                    <p class="modal-texto">O admin com esse CPF será excluído. Você não pode excluir o seu próprio usuário.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>

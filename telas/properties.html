@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades - Argos</title>
+
+    <!-- Fontes do Figma  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+    <link rel="stylesheet" href="assets/css/pesquisa.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+    <script src="assets/js/pesquisa.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class="active"><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class=""><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main class="conteudo">
+
+        
+
+        <section class="painel">
+
+            <div class="painel-topo">
+                <h1>Propriedades cadastradas</h1>
+
+                <div class="painel-acoes">
+
+                <details class="filtro ">
+                    <summary>Filtrar</summary>
+                    <form method="get" action="properties.html">
+                            <div class="campo"><label for="filtro-name">Nome</label><input type="text" id="filtro-name" name="name" value=""/></div>
+                            <div class="campo"><label for="filtro-cnpj">CNPJ</label><input type="text" id="filtro-cnpj" name="cnpj" value=""/></div>
+                            <div class="campo"><label for="filtro-phone">Telefone</label><input type="text" id="filtro-phone" name="phone" value=""/></div>
+                            <div class="campo"><label for="filtro-userIds">Usuário</label><select id="filtro-userIds" name="userIds"><option value="">Todos</option><option value="00000000-0000-4000-8000-000000000200" >João Pedro Almeida</option><option value="00000000-0000-4000-8000-000000000201" >Maria Clara Ferreira</option><option value="00000000-0000-4000-8000-000000000202" >Roberto Nascimento</option><option value="00000000-0000-4000-8000-000000000203" >Luciana Barbosa</option><option value="00000000-0000-4000-8000-000000000204" >Paulo Henrique Dias</option><option value="00000000-0000-4000-8000-000000000205" >Tatiane Moreira</option><option value="00000000-0000-4000-8000-000000000206" >Anderson Silva</option></select></div>
+                        <div class="filtro-acoes"><a href="properties.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                    </form>
+                </details>
+                <button type="button" class="btn btn-escuro"
+                        data-abrir="modalPropriedade" data-acao="criar" data-action="#"
+                        data-titulo="Cadastrar Propriedade" data-botao="Cadastrar">
+                    <i class="fa-solid fa-plus"></i> Nova propriedade
+                </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por endereço
+                </button>
+            </div>
+            </div>
+
+            <div class="busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="campoBusca" placeholder="Buscar propriedade ..." aria-label="Buscar propriedade" autocomplete="off">
+            </div>
+
+            <div class="tabela-scroll">
+                <table class="tabela" id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>Telefone</th>
+                            <th>Última atualização</th>
+                            <th class="col-acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                            <tr class="linha" data-filter-name="Fazenda Recanto do Vale" data-filter-cnpj="12345678000195" data-filter-phone="16991230001">
+                                <td>Fazenda Recanto do Vale</td>
+                                <td class="cnpj">12345678000195</td>
+                                <td class="telefone">16991230001</td>
+                                <td>28/10/2026 09:00</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000300"
+                                            data-name="Fazenda Recanto do Vale"
+                                            data-cnpj="12345678000195"
+                                            data-phone="16991230001"
+                                            data-street="Estrada do Vale"
+                                            data-number="120"
+                                            data-city="Ribeirão Preto"
+                                            data-state="SP"
+                                            data-zip-code="14000000"
+                                            data-complement="Km 12, portão azul"
+                                            data-user-ids="00000000-0000-4000-8000-000000000200">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000300"
+                                            data-name="Fazenda Recanto do Vale">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha" data-filter-name="Sítio Boa Esperança" data-filter-cnpj="23456789000101" data-filter-phone="16991230002">
+                                <td>Sítio Boa Esperança</td>
+                                <td class="cnpj">23456789000101</td>
+                                <td class="telefone">16991230002</td>
+                                <td>27/10/2026 16:30</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000301"
+                                            data-name="Sítio Boa Esperança"
+                                            data-cnpj="23456789000101"
+                                            data-phone="16991230002"
+                                            data-street="Rodovia SP-333"
+                                            data-number="450"
+                                            data-city="Jaboticabal"
+                                            data-state="SP"
+                                            data-zip-code="14870000"
+                                            data-complement="Km 3"
+                                            data-user-ids="00000000-0000-4000-8000-000000000201">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000301"
+                                            data-name="Sítio Boa Esperança">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha" data-filter-name="Fazenda São João" data-filter-cnpj="34567890000112" data-filter-phone="16991230003">
+                                <td>Fazenda São João</td>
+                                <td class="cnpj">34567890000112</td>
+                                <td class="telefone">16991230003</td>
+                                <td>26/10/2026 12:15</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000302"
+                                            data-name="Fazenda São João"
+                                            data-cnpj="34567890000112"
+                                            data-phone="16991230003"
+                                            data-street="Estrada Municipal"
+                                            data-number="88"
+                                            data-city="Franca"
+                                            data-state="SP"
+                                            data-zip-code="14400000"
+                                            data-complement=""
+                                            data-user-ids="00000000-0000-4000-8000-000000000202">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000302"
+                                            data-name="Fazenda São João">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha" data-filter-name="Estância Três Irmãos" data-filter-cnpj="45678901000123" data-filter-phone="16991230004">
+                                <td>Estância Três Irmãos</td>
+                                <td class="cnpj">45678901000123</td>
+                                <td class="telefone">16991230004</td>
+                                <td>25/10/2026 10:45</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000303"
+                                            data-name="Estância Três Irmãos"
+                                            data-cnpj="45678901000123"
+                                            data-phone="16991230004"
+                                            data-street="Rua das Palmeiras"
+                                            data-number="15"
+                                            data-city="Uberaba"
+                                            data-state="MG"
+                                            data-zip-code="38000000"
+                                            data-complement="Porteira verde"
+                                            data-user-ids="00000000-0000-4000-8000-000000000203">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000303"
+                                            data-name="Estância Três Irmãos">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha" data-filter-name="Fazenda Água Limpa" data-filter-cnpj="56789012000134" data-filter-phone="16991230005">
+                                <td>Fazenda Água Limpa</td>
+                                <td class="cnpj">56789012000134</td>
+                                <td class="telefone">16991230005</td>
+                                <td>24/10/2026 14:00</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000304"
+                                            data-name="Fazenda Água Limpa"
+                                            data-cnpj="56789012000134"
+                                            data-phone="16991230005"
+                                            data-street="Estrada da Serra"
+                                            data-number="300"
+                                            data-city="Barretos"
+                                            data-state="SP"
+                                            data-zip-code="14780000"
+                                            data-complement=""
+                                            data-user-ids="00000000-0000-4000-8000-000000000204">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000304"
+                                            data-name="Fazenda Água Limpa">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha" data-filter-name="Chácara Pôr do Sol" data-filter-cnpj="67890123000145" data-filter-phone="16991230006">
+                                <td>Chácara Pôr do Sol</td>
+                                <td class="cnpj">67890123000145</td>
+                                <td class="telefone">16991230006</td>
+                                <td>22/10/2026 18:20</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar propriedade"
+                                            data-abrir="modalPropriedade" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Propriedade" data-botao="Salvar"
+                                            data-id-property="00000000-0000-4000-8000-000000000305"
+                                            data-name="Chácara Pôr do Sol"
+                                            data-cnpj="67890123000145"
+                                            data-phone="16991230006"
+                                            data-street="Av. Central"
+                                            data-number="1020"
+                                            data-city="Catalão"
+                                            data-state="GO"
+                                            data-zip-code="75700000"
+                                            data-complement="Sala 2"
+                                            data-user-ids="00000000-0000-4000-8000-000000000205">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir propriedade"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000305"
+                                            data-name="Chácara Pôr do Sol">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        <tr class="linha-vazia" id="linhaVazia" hidden>
+                            <td colspan="5">Nenhum resultado encontrado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="painel-rodape">
+                <p id="infoPaginas" aria-live="polite"></p>
+                <div class="paginacao">
+                    <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                    <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- POP-UP -->
+        <dialog class="modal" id="modalPropriedade">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Cadastrar Propriedade</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="idProperty" value="">
+
+                    <div class="form-grade">
+                        <div class="campo">
+                            <label for="campoNome">Nome</label>
+                            <input type="text" id="campoNome" name="name" placeholder="ex: Recanto do Vale"
+                                   required maxlength="120" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoTelefone">Telefone</label>
+                            <input type="tel" id="campoTelefone" name="phone" placeholder="ex: 11999999999"
+                                   required inputmode="numeric" maxlength="11" pattern="\d{10,11}"
+                                   title="DDD + número, só números (10 ou 11 dígitos)" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoCnpj">CNPJ</label>
+                            <input type="text" id="campoCnpj" name="cnpj" placeholder="ex: 12345678901234"
+                                   required inputmode="numeric" maxlength="14" pattern="\d{14}"
+                                   title="Digite os 14 números do CNPJ, sem pontos, barra e traço" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoCep">CEP</label>
+                            <input type="text" id="campoCep" name="zipCode" placeholder="ex: 14000000"
+                                   required inputmode="numeric" maxlength="8" pattern="\d{8}"
+                                   title="Digite os 8 números do CEP, sem traço" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoEstado">Estado</label>
+                            <select id="campoEstado" name="state" required>
+                                <option value="">Selecione</option>
+                                
+                                    <option value="AC">AC</option>
+                                
+                                    <option value="AL">AL</option>
+                                
+                                    <option value="AP">AP</option>
+                                
+                                    <option value="AM">AM</option>
+                                
+                                    <option value="BA">BA</option>
+                                
+                                    <option value="CE">CE</option>
+                                
+                                    <option value="DF">DF</option>
+                                
+                                    <option value="ES">ES</option>
+                                
+                                    <option value="GO">GO</option>
+                                
+                                    <option value="MA">MA</option>
+                                
+                                    <option value="MT">MT</option>
+                                
+                                    <option value="MS">MS</option>
+                                
+                                    <option value="MG">MG</option>
+                                
+                                    <option value="PA">PA</option>
+                                
+                                    <option value="PB">PB</option>
+                                
+                                    <option value="PR">PR</option>
+                                
+                                    <option value="PE">PE</option>
+                                
+                                    <option value="PI">PI</option>
+                                
+                                    <option value="RJ">RJ</option>
+                                
+                                    <option value="RN">RN</option>
+                                
+                                    <option value="RS">RS</option>
+                                
+                                    <option value="RO">RO</option>
+                                
+                                    <option value="RR">RR</option>
+                                
+                                    <option value="SC">SC</option>
+                                
+                                    <option value="SP">SP</option>
+                                
+                                    <option value="SE">SE</option>
+                                
+                                    <option value="TO">TO</option>
+                                
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="campoCidade">Cidade</label>
+                            <input type="text" id="campoCidade" name="city" placeholder="ex: Ribeirão Preto"
+                                   maxlength="100" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoRua">Rua</label>
+                            <input type="text" id="campoRua" name="street" placeholder="ex: Estrada do Vale"
+                                   maxlength="150" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoNumero">Número</label>
+                            <input type="number" id="campoNumero" name="number" placeholder="ex: 120" min="0">
+                        </div>
+                        <div class="campo largura-total">
+                            <label for="campoComplemento">Complemento</label>
+                            <input type="text" id="campoComplemento" name="complement" placeholder="ex: Km 12, portão azul"
+                                   maxlength="150" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <h3 class="form-secao">Usuário</h3>
+                    <div class="form-grade">
+                        <div class="campo largura-total">
+                            <label for="campoUsuario">Usuário</label>
+                            <div class="pesquisa" data-pesquisa data-name="userIds" data-obrigatorio data-varios>
+                                <ul class="pesquisa-escolhidos"></ul>
+                                <input type="text" id="campoUsuario" class="pesquisa-texto" placeholder="Pesquisar usuário" aria-label="Usuário">
+                                <ul class="pesquisa-lista" hidden>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000200">João Pedro Almeida</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000201">Maria Clara Ferreira</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000202">Roberto Nascimento</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000203">Luciana Barbosa</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000204">Paulo Henrique Dias</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000205">Tatiane Moreira</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000206">Anderson Silva</li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-rodape">
+                        <button type="submit" class="btn-pilula">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP -->
+        <dialog class="modal modal-pequeno" id="modalExcluir">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir Propriedade</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="id" value="">
+
+                    <p class="modal-texto">Tem certeza que deseja excluir <strong data-mostrar="name"></strong>?</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir propriedade pelo endereço</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirEndereco">Endereço</label>
+                        <select id="campoExcluirEndereco" name="addressId" required>
+                            <option value="">Selecione</option>
+
+                                
+                                    <option value="00000000-0000-4000-8000-000000000350">Estrada do Vale, 120 - Ribeirão Preto/SP (Fazenda Recanto do Vale)</option>
+
+                                
+                                
+                                    <option value="00000000-0000-4000-8000-000000000351">Rodovia SP-333, 450 - Jaboticabal/SP (Sítio Boa Esperança)</option>
+
+                                
+                                
+                                    <option value="00000000-0000-4000-8000-000000000352">Estrada Municipal, 88 - Franca/SP (Fazenda São João)</option>
+
+                                
+                                
+                                    <option value="00000000-0000-4000-8000-000000000353">Rua das Palmeiras, 15 - Uberaba/MG (Estância Três Irmãos)</option>
+
+                                
+                                
+                                    <option value="00000000-0000-4000-8000-000000000354">Estrada da Serra, 300 - Barretos/SP (Fazenda Água Limpa)</option>
+
+                                
+                                
+                                    <option value="00000000-0000-4000-8000-000000000355">Av. Central, 1020 - Catalão/GO (Chácara Pôr do Sol)</option>
+
+                        </select>
+                    </div>
+
+                    <p class="modal-texto">A propriedade deste endereço será excluída, junto com os rebanhos, lotes e animais dela.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>

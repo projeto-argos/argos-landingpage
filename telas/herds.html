@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebanhos - Argos</title>
+
+    <!-- Fontes do Figma  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="assets/img/logo-tipo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/tables.css">
+    <link rel="stylesheet" href="assets/css/forms.css">
+    <link rel="stylesheet" href="assets/css/filtro.css">
+    <link rel="stylesheet" href="assets/css/feedbackMessages.css">
+    <link rel="stylesheet" href="assets/css/pesquisa.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/popup.js" defer></script>
+    <script src="assets/js/tabela.js" defer></script>
+    <script src="assets/js/filtro.js" defer></script>
+    <script src="assets/js/pesquisa.js" defer></script>
+</head>
+<body>
+
+<!-- Botão do menu no celular -->
+<button type="button" class="menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+</button>
+<div class="sidebar-fundo"></div>
+
+<nav class="sidebar">
+    <header>
+        <img class="logo-completo"
+             src="assets/img/logo-argos.png"
+             alt="Argos">
+
+        <img class="logo-icone"
+             src="assets/img/logo-argos-icone.png"
+             alt="Argos">
+
+        <button type="button" class="toggle"
+                aria-label="Abrir ou fechar menu">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <button type="button" class="menu-fechar" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </header>
+
+    <div class="menu-bar">
+        <ul class="menu-links">
+            <li><a href="home.html" class=""><i class="fa-solid fa-house icon"></i><span class="text">Página inicial</span></a></li>
+            <li><a href="users.html" class=""><i class="fa-solid fa-user icon"></i><span class="text">Usuário</span></a></li>
+            <li><a href="properties.html" class=""><i class="fa-solid fa-location-dot icon"></i><span class="text">Propriedade</span></a></li>
+            <li><a href="animals.html" class=""><i class="fa-solid fa-cow icon"></i><span class="text">Animal</span></a></li>
+            <li><a href="lots.html" class=""><span class="icone-lote"><i class="fa-solid fa-cow"></i><i class="fa-solid fa-plus"></i></span><span class="text">Lote</span></a></li>
+            <li><a href="herds.html" class="active"><i class="fa-solid fa-warehouse icon"></i><span class="text">Rebanho</span></a></li>
+            <li><a href="admins.html" class=""><i class="fa-solid fa-user-gear icon"></i><span class="text">Admin</span></a></li>
+        </ul>
+
+        <ul class="bottom-content">
+            <li>
+                <button type="button" class="mode-btn">
+                    <span class="icon moon"><i class="fa-solid fa-moon"></i></span>
+                    <span class="icon sun"><i class="fa-solid fa-sun"></i></span>
+                    <span class="text mode-text">Modo escuro</span>
+                    <span class="switch"></span>
+                </button>
+            </li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket icon"></i><span class="text">Sair</span></a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main class="conteudo">
+
+        
+
+        <section class="painel">
+
+            <div class="painel-topo">
+                <h1>Rebanhos cadastrados</h1>
+<div class="painel-acoes">
+                
+                <details class="filtro ">
+                    <summary>Filtrar</summary>
+                    <form method="get" action="herds.html">
+                            <div class="campo"><label for="filtro-name">Nome</label><input type="text" id="filtro-name" name="name" value=""/></div>
+                            <div class="campo"><label for="filtro-breed">Raça</label><input type="text" id="filtro-breed" name="breed" value=""/></div>
+                            <div class="campo"><label for="filtro-purpose">Finalidade</label><input type="text" id="filtro-purpose" name="purpose" value=""/></div>
+                            <div class="campo"><label for="filtro-propertyId">Propriedade</label><select id="filtro-propertyId" name="propertyId"><option value="">Todas</option><option value="00000000-0000-4000-8000-000000000300" >Fazenda Recanto do Vale</option><option value="00000000-0000-4000-8000-000000000301" >Sítio Boa Esperança</option><option value="00000000-0000-4000-8000-000000000302" >Fazenda São João</option><option value="00000000-0000-4000-8000-000000000303" >Estância Três Irmãos</option><option value="00000000-0000-4000-8000-000000000304" >Fazenda Água Limpa</option><option value="00000000-0000-4000-8000-000000000305" >Chácara Pôr do Sol</option></select></div>
+                        <div class="filtro-acoes"><a href="herds.html" class="btn-pilula btn-neutro">Limpar</a><button type="submit" class="btn-pilula">Aplicar filtro</button></div>
+                    </form>
+                </details>
+                <button type="button" class="btn btn-escuro"
+                        data-abrir="modalHerd" data-acao="criar" data-action="#"
+                        data-titulo="Cadastrar Rebanho" data-botao="Cadastrar">
+                    <i class="fa-solid fa-plus"></i> Novo rebanho
+                </button>
+                <button type="button" class="btn btn-contorno" data-abrir="modalExcluirCampo">
+                    <i class="fa-solid fa-trash-can"></i> Excluir por propriedade
+                </button>
+            </div>
+            </div>
+
+            <div class="busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="campoBusca" placeholder="Buscar rebanho ..." aria-label="Buscar rebanho" autocomplete="off">
+            </div>
+
+            <div class="tabela-scroll">
+                <table class="tabela" id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Propriedade</th>
+                            <th>Raça</th>
+                            <th>Finalidade</th>
+                            <th>Quantidade de cabeças</th>
+                            <th>Última atualização</th>
+                            <th class="col-acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                            <tr class="linha">
+                                <td>Rebanho Nelore A</td>
+                                <td>Fazenda Recanto do Vale</td>
+                                <td>Nelore</td>
+                                <td>CORTE</td>
+                                <td>120</td>
+                                <td>28/10/2026 08:00</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000400"
+                                            data-name="Rebanho Nelore A"
+                                            data-breed="Nelore"
+                                            data-purpose="CORTE"
+                                            data-head-count="120"
+                                            data-property-id="00000000-0000-4000-8000-000000000300">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000400"
+                                            data-name="Rebanho Nelore A">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Rebanho Angus B</td>
+                                <td>Fazenda Recanto do Vale</td>
+                                <td>Angus</td>
+                                <td>CORTE</td>
+                                <td>80</td>
+                                <td>27/10/2026 11:00</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000401"
+                                            data-name="Rebanho Angus B"
+                                            data-breed="Angus"
+                                            data-purpose="CORTE"
+                                            data-head-count="80"
+                                            data-property-id="00000000-0000-4000-8000-000000000300">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000401"
+                                            data-name="Rebanho Angus B">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Rebanho Hereford</td>
+                                <td>Sítio Boa Esperança</td>
+                                <td>Hereford</td>
+                                <td>CORTE</td>
+                                <td>60</td>
+                                <td>26/10/2026 14:30</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000402"
+                                            data-name="Rebanho Hereford"
+                                            data-breed="Hereford"
+                                            data-purpose="CORTE"
+                                            data-head-count="60"
+                                            data-property-id="00000000-0000-4000-8000-000000000301">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000402"
+                                            data-name="Rebanho Hereford">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Rebanho Brahman</td>
+                                <td>Fazenda São João</td>
+                                <td>Brahman</td>
+                                <td>CORTE</td>
+                                <td>150</td>
+                                <td>25/10/2026 09:40</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000403"
+                                            data-name="Rebanho Brahman"
+                                            data-breed="Brahman"
+                                            data-purpose="CORTE"
+                                            data-head-count="150"
+                                            data-property-id="00000000-0000-4000-8000-000000000302">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000403"
+                                            data-name="Rebanho Brahman">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Rebanho Senepol</td>
+                                <td>Estância Três Irmãos</td>
+                                <td>Senepol</td>
+                                <td>CORTE</td>
+                                <td>95</td>
+                                <td>24/10/2026 16:10</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000404"
+                                            data-name="Rebanho Senepol"
+                                            data-breed="Senepol"
+                                            data-purpose="CORTE"
+                                            data-head-count="95"
+                                            data-property-id="00000000-0000-4000-8000-000000000303">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000404"
+                                            data-name="Rebanho Senepol">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        
+                            <tr class="linha">
+                                <td>Rebanho Tabapuã</td>
+                                <td>Fazenda Água Limpa</td>
+                                <td>Tabapuã</td>
+                                <td>CORTE</td>
+                                <td>70</td>
+                                <td>23/10/2026 10:05</td>
+                                <td class="col-acoes">
+                                    <button type="button" class="btn-icone btn-editar" title="Editar" aria-label="Editar rebanho"
+                                            data-abrir="modalHerd" data-acao="editar" data-action="#"
+                                            data-titulo="Editar Rebanho" data-botao="Salvar"
+                                            data-id-herd="00000000-0000-4000-8000-000000000405"
+                                            data-name="Rebanho Tabapuã"
+                                            data-breed="Tabapuã"
+                                            data-purpose="CORTE"
+                                            data-head-count="70"
+                                            data-property-id="00000000-0000-4000-8000-000000000304">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button type="button" class="btn-icone btn-excluir" title="Excluir" aria-label="Excluir rebanho"
+                                            data-abrir="modalExcluir"
+                                            data-id="00000000-0000-4000-8000-000000000405"
+                                            data-name="Rebanho Tabapuã">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        <tr class="linha-vazia" id="linhaVazia" hidden>
+                            <td colspan="7">Nenhum resultado encontrado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="painel-rodape">
+                <p id="infoPaginas" aria-live="polite"></p>
+                <div class="paginacao">
+                    <button type="button" class="btn btn-contorno" id="btnAnterior">Anterior</button>
+                <button type="button" class="btn btn-escuro" id="btnProxima">Próxima</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- POP-UP -->
+        <dialog class="modal" id="modalHerd">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Cadastrar Rebanho</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="idHerd" value="">
+
+                    <div class="form-grade">
+                        <div class="campo">
+                            <label for="campoNome">Nome</label>
+                            <input type="text" id="campoNome" name="name" placeholder="ex: Rebanho Alvorada"
+                                   required maxlength="60" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoRaca">Raça</label>
+                            <input type="text" id="campoRaca" name="breed" placeholder="ex: Hereford"
+                                   required maxlength="40" autocomplete="off">
+                        </div>
+                        <div class="campo">
+                            <label for="campoFinalidade">Finalidade</label>
+                            <select id="campoFinalidade" name="purpose" required>
+                                <option value="CORTE">Bovinos de corte</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="campoPropriedade">Propriedade</label>
+                            <div class="pesquisa" data-pesquisa data-name="propertyId" data-obrigatorio>
+                                <input type="text" id="campoPropriedade" class="pesquisa-texto" placeholder="Pesquisar propriedade" aria-label="Propriedade">
+                                <ul class="pesquisa-lista" hidden>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000300">Fazenda Recanto do Vale</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000301">Sítio Boa Esperança</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000302">Fazenda São João</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000303">Estância Três Irmãos</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000304">Fazenda Água Limpa</li>
+                                    
+                                        <li data-id="00000000-0000-4000-8000-000000000305">Chácara Pôr do Sol</li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <label for="campoQuantidade">Quantidade de cabeças</label>
+                            <input type="number" id="campoQuantidade" name="headCount" placeholder="ex: 100"
+                                   required min="0" step="1" inputmode="numeric" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-rodape">
+                        <button type="submit" class="btn-pilula">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP -->
+        <dialog class="modal modal-pequeno" id="modalExcluir">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir Rebanho</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <input type="hidden" name="id" value="">
+
+                    <p class="modal-texto">Tem certeza que deseja excluir <strong data-mostrar="name"></strong>?</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <!-- POP-UP: exclusão por outro campo -->
+        <dialog class="modal modal-pequeno" id="modalExcluirCampo">
+            <div class="modal-caixa">
+                <div class="modal-topo">
+                    <h2>Excluir rebanhos da propriedade</h2>
+                    <button type="button" class="btn-fechar" data-fechar aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <form method="post" action="#">
+                    <div class="campo">
+                        <label for="campoExcluirPropriedade">Propriedade</label>
+                        <select id="campoExcluirPropriedade" name="propertyId" required>
+                            <option value="">Selecione</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000300">Fazenda Recanto do Vale</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000301">Sítio Boa Esperança</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000302">Fazenda São João</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000303">Estância Três Irmãos</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000304">Fazenda Água Limpa</option>
+                            
+                                <option value="00000000-0000-4000-8000-000000000305">Chácara Pôr do Sol</option>
+                            
+                        </select>
+                    </div>
+
+                    <p class="modal-texto"><strong>Atenção:</strong> isso exclui <strong>TODOS</strong> os rebanhos desta propriedade, junto com os lotes e animais deles.</p>
+
+                    <div class="form-rodape">
+                        <button type="button" class="btn-pilula btn-neutro" data-fechar>Cancelar</button>
+                        <button type="submit" class="btn-pilula btn-perigo">Excluir todos</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+    </main>
+
+</body>
+</html>
