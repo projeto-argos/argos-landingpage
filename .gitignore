@@ -1,8 +1,8 @@
-   # CONFIGURAÇÕES DE EDITOR
-   .idea/
-   .vscode/
-   *.iml
+# CONFIGURAÇÕES DE EDITOR
+.idea/
+.vscode/
+*.iml
 
-   # ARQUIVOS DO SISTEMA
-   .DS_Store
-   Thumbs.db
+# ARQUIVOS DO SISTEMA
+.DS_Store
+Thumbs.db
